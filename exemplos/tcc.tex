@@ -1,0 +1,63 @@
+\documentclass[serif]{uffstex}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% o abnTeX2 e a uffstex não obrigam
+% a utilização de alguma fonte, então, se
+% nenhuma for especificada, a padrão do
+% LaTeX é utilizada (Computer Modern)
+% as fontes do pacote newtx são recomendadas
+% para quem deseja utilizar Times New Roman
+\usepackage{newtxtext}
+\usepackage{newtxmath}
+
+\autor{Autor}
+\titulo{Título}
+\subtitulo{Subtítulo}
+\curso{Curso}
+\local{Local}
+\data{\hoje}
+\orientador{Orientador}
+\coorientador{Coorientador}
+
+\begin{document}
+
+% início da parte pré-textual
+% (opcional, abnTeX2 faz automaticamente)
+\pretextual
+
+\imprimircapa
+
+\imprimirfolhaderosto
+
+% coloca o sumário no "sumário do PDF"
+% (chamado de bookmark do PDF)
+\pdfbookmark{\contentsname}{toc}
+% versão com * não coloca o próprio sumário no sumário
+\tableofcontents*
+\clearpage
+
+% início da parte textual
+\textual
+
+\chapter{Seção primária}
+
+Conteúdo da seção primária.
+
+\section{Seção secundária}
+
+Conteúdo da seção secundária.
+
+\subsection{Seção terciária}
+
+Conteúdo da seção terciária.
+
+\subsubsection{Seção quaternária}
+
+Conteúdo da seção quaternária.
+
+\subsubsubsection{Seção quinária}
+
+Conteúdo da seção quinária.
+
+\end{document}
