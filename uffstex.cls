@@ -102,6 +102,9 @@ da Universidade Federal da Fronteira Sul baseada em abnTeX2]
 % (abnTeX2 define \subsubsubsection como \paragraph)
 \setlength{\afterparaskip}{\baselineskip}
 
+% remove espaço vertical que antecede uma seção primária no sumário
+\setlength{\cftbeforechapterskip}{0cm}
+
 % ==============================================================================
 % Strings da classe
 % ==============================================================================
