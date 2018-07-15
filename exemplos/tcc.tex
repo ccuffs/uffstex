@@ -2,6 +2,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
+\usepackage{booktabs}
+\usepackage{csquotes}
+
 % o abnTeX2 e a uffstex não obrigam
 % a utilização de alguma fonte, então, se
 % nenhuma for especificada, a padrão do
@@ -60,4 +63,41 @@ Conteúdo da seção quaternária.
 
 Conteúdo da seção quinária.
 
+\newpage
+
+\chapter{Tabelas}
+
+Exemplos de tabelas.
+
+\section{Tabelas \enquote{normais}}
+
+% tabelas normais do LaTeX, com um pouco
+% de beleza graças ao pacote booktabs
+\begin{table}[h]
+  \centering
+  % \caption é o rótulo (título, identificação), que deve estar
+  % acima do elemento (tabelas, figuras, etc)
+  \caption{Países, capitais e população total aproximada}
+  % @{} remove o espaço nas laterais
+  \begin{tabular}{@{}llr@{}}
+    \toprule % linha superior
+    % notas de rodapé não se dão bem com tabelas, então
+    % precisa usar \footnotemark com \footnotetext ao
+    % invés de apenas \footnote{<texto>}
+    País   & Capital & População\footnotemark\\
+    \midrule % linha do meio
+    Brasil & Brasília & 208 milhões\\
+    Itália & Roma     & 61 milhões\\
+    Canadá & Ottawa   & 37 milhões\\
+    China  & Pequim   & 1.4 bilhões\\
+    \bottomrule % linha inferior
+  \end{tabular}
+  % \legend é a legenda para indicar a fonte e outras informações,
+  % se necessário, e deve estar abaixo do elemento
+  \legend{Fonte: Google}
+  % etiqueta para referenciar o elemento no texto
+  \label{tab:paises}
+\end{table}
+
+\footnotetext{População do país, não da capital!}
 \end{document}
