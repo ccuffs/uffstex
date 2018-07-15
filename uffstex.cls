@@ -80,7 +80,7 @@ da Universidade Federal da Fronteira Sul baseada em abnTeX2]
 % ==============================================================================
 % patch pra deixar seções em caixa alta no sumário
 % (cortesia de Lars Andersen, da classe Memoir)
-\patchcmd{\H@old@sectm@m}{\fi#7}{%
+\xpatchcmd{\H@old@sectm@m}{\fi#7}{%
     \fi\ifnum#2=1\relax\texorpdfstring{\MakeTextUppercase{#7}}{#7}\else#7\fi%
 }{%
     \ClassInfo{uffstex}{patch of uppercase section succeeded}%
