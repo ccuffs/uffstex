@@ -11,7 +11,7 @@
 %% version 2005/12/01 or later.
 %%
 %% This work has the LPPL maintenance status `maintained'.
-%% 
+%%
 %% The Current Maintainer of this work is the ccuffs team.
 %%
 %% This work consists of the file uffstex.cls.
@@ -76,6 +76,19 @@ da Universidade Federal da Fronteira Sul baseada em abnTeX2]
 \LoadClass{abntex2}
 
 % ==============================================================================
+% Patches
+% ==============================================================================
+% patch pra deixar seções em caixa alta no sumário
+% (cortesia de Lars Andersen, da classe Memoir)
+\patchcmd{\H@old@sectm@m}{\fi#7}{%
+    \fi\ifnum#2=1\relax\texorpdfstring{\MakeTextUppercase{#7}}{#7}\else#7\fi%
+}{%
+    \ClassInfo{uffstex}{patch of uppercase section succeeded}%
+}{%
+    \ClassWarning{uffstex}{patch of uppercase section failed}%
+}
+
+% ==============================================================================
 % Configurações de tamanhos e comprimentos
 % ==============================================================================
 % tamanho da indentação de novo parágrafo
@@ -117,19 +130,6 @@ da Universidade Federal da Fronteira Sul baseada em abnTeX2]
 
 \providecommand*{\imprimirsubtitulo}{}
 \newcommand*{\subtitulo}[1]{\renewcommand*{\imprimirsubtitulo}{#1}}
-
-% ==============================================================================
-% Patches
-% ==============================================================================
-% patch pra deixar seções em caixa alta no sumário
-% (cortesia de Lars Andersen, da classe Memoir)
-\patchcmd{\H@old@sectm@m}{\fi#7}{%
-    \fi\ifnum#2=1\relax\texorpdfstring{\MakeTextUppercase{#7}}{#7}\else#7\fi%
-}{%
-    \ClassInfo{uffstex}{patch of uppercase section succeeded}%
-}{%
-    \ClassWarning{uffstex}{patch of uppercase section failed}%
-}
 
 % ==============================================================================
 % Fontes padrões dos títulos até seção quinária (texto e sumário)
@@ -177,30 +177,30 @@ da Universidade Federal da Fronteira Sul baseada em abnTeX2]
     \begin{capa}
         \centering
         \ABNTEXchapterfont
-        
+
         % a logo deveria ser 20mm x 20mm, mas
         % daí vai distorcer... colocando só
         % altura, o LaTeX a escala (largura
         % ficará menor)
         \includegraphics[height=20mm]{logo.png}
-        
+
         \vspace{1cm}
-        
+
         \MakeTextUppercase{\imprimirinstituicao}\\
         \MakeTextUppercase{CAMPUS DE \imprimirlocal}\\
         \MakeTextUppercase{CURSO DE \imprimircurso}
-        
+
         \vspace{3cm}
-        
+
         \MakeTextUppercase{\imprimirautor}
-        
+
         \vspace{5cm}
-        
+
         \MakeTextUppercase{\imprimirtitulo}\\
         \textmd{\MakeTextUppercase{\imprimirsubtitulo}}
-        
+
         \vspace{\fill}
-        
+
         \MakeTextUppercase{\imprimirlocal}\\
         \the\year
     \end{capa}
@@ -212,32 +212,32 @@ da Universidade Federal da Fronteira Sul baseada em abnTeX2]
 \renewcommand{\folhaderostocontent}{
     \centering
     \ABNTEXchapterfont
-    
+
     \MakeTextUppercase{\imprimirautor}
-    
+
     \vspace{6cm}
-    
+
     \MakeTextUppercase{\imprimirtitulo}\\
     \textmd{\MakeTextUppercase{\imprimirsubtitulo}}
-    
+
     \vspace{2cm}
-    
+
     \abntex@ifnotempty{\imprimirpreambulo}{
         \hspace*{0.49\textwidth}
         \begin{minipage}{0.5\textwidth}
             \mdseries
             \footnotesize
             \SingleSpacing
-            
+
             \imprimirpreambulo
-            
+
             \imprimirorientadorRotulo\ \imprimirorientador\\
             \imprimircoorientadorRotulo\ \imprimircoorientador
         \end{minipage}
     }
-    
+
     \vfill
-    
+
     \textbf{\MakeTextUppercase{\imprimirlocal}}\\
     \textbf{\the\year}
 }
