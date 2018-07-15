@@ -83,9 +83,19 @@ da Universidade Federal da Fronteira Sul baseada em abnTeX2]
 \xpatchcmd{\H@old@sectm@m}{\fi#7}{%
     \fi\ifnum#2=1\relax\texorpdfstring{\MakeTextUppercase{#7}}{#7}\else#7\fi%
 }{%
-    \ClassInfo{uffstex}{patch of uppercase section succeeded}%
+    \ClassInfo{uffstex}{patch para seções secundárias em caixa alta no
+    sumário aplicado com sucesso}%
 }{%
-    \ClassWarning{uffstex}{patch of uppercase section failed}%
+    \ClassWarning{uffstex}{patch para seções secundárias em caixa alta no
+    sumário falhou}%
+}
+
+% patch para deixar apenas o número da página no cabeçalho
+\xpatchcmd{\textual}{\pagestyle{abntheadings}}{\pagestyle{simple}}{%
+  \ClassInfo{uffstex}{patch para cabeçalho simples de página
+  aplicado com sucesso}%
+}{%
+  \ClassWarning{uffstex}{patch para cabeçalho simples de página falhou}%
 }
 
 % ==============================================================================
