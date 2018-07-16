@@ -4,7 +4,6 @@
 
 \usepackage{booktabs}
 \usepackage{csquotes}
-
 % o abnTeX2 e a uffstex não obrigam
 % a utilização de alguma fonte, então, se
 % nenhuma for especificada, a padrão do
@@ -13,6 +12,11 @@
 % para quem deseja utilizar Times New Roman
 \usepackage{newtxtext}
 \usepackage{newtxmath}
+% cleveref deve ser carregado após hyperref
+% (carregado automaticamente pelo abntex2)
+% e amsmath (pacote newtxmath aparentemente
+% carrega amsmath)
+\usepackage{cleveref}
 
 \autor{Autor}
 \titulo{Título}
@@ -64,6 +68,10 @@ Conteúdo da seção quaternária.
 Conteúdo da seção quinária.
 
 \chapter{Imagens}
+
+Na \autoref{fig:logo_uffs} podemos ver a logo da \imprimirinstituicao.
+
+Na \cref{fig:logo_uffs} podemos ver a logo da \imprimirinstituicao.
 
 \begin{figure}[h]
   \centering
@@ -126,7 +134,7 @@ Exemplos de tabelas\footnote{Todas as seções devem conter algum texto entre el
       \bottomrule
     \end{tabular}
   }{
-    \fonte{elaborado pelos autores, com dados do Google e comandos retirados do manual do abn\TeX2}
+    \fonte{elaborado pelos autores, com dados do Google e comandos retirados do manual do \abnTeX}
     \nota{Uma nota.}
     \nota[Anotações]{Outra nota, mas com prefixo diferente.}
   }
