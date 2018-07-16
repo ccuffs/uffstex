@@ -118,23 +118,45 @@ da Universidade Federal da Fronteira Sul baseada em abnTeX2]
 % ==============================================================================
 % Localização
 % ==============================================================================
-% inglês
-\addto\captionsenglish{
-  \renewcommand{\orientadorname}{Advisor:}
-  \renewcommand{\coorientadorname}{Co-advisor:}
+% português do Brasil
+% por mais que especifiquemos "brazilian" como opção global,
+% o abntex2 passa a opção "brazil" pro babel...
+\addto\captionsbrazil{
+  \providecommand*{\campusname}{campus de}
+  \providecommand*{\cursoname}{curso de}
+  \providecommand*{\bacharelname}{Bacharel}
+  \providecommand*{\licenciaturaname}{Licenciatura}
+}
+\addto\extrasbrazil{
+  \instituicao{Universidade Federal da Fronteira Sul}
+  % texto "natureza do trabalho"; está um pouco diferente
+  % do modelo da normalização de trabalhos da universidade...
+  % como fica o título de quem fez licenciatura?
+  \preambulo{Trabalho de conclus\~ao de curso apresentado %
+      como requisito para obten\c{c}\~ao do grau de \imprimirgrau\ em %
+      \imprimircurso\ da \imprimirinstituicao.}
 }
 
-% ==============================================================================
-% Strings da classe
-% ==============================================================================
-\instituicao{Universidade Federal da Fronteira Sul}
-
-% texto "natureza do trabalho"; está um pouco diferente
-% do modelo da normalização de trabalhos da universidade...
-% como fica o título de quem fez licenciatura?
-\preambulo{Trabalho de conclus\~ao de curso apresentado %
-    como requisito para obten\c{c}\~ao do grau de \imprimirgrau\ em %
-    \imprimircurso\ da \imprimirinstituicao.}
+% inglês
+\addto\captionsenglish{
+  \renewcommand*{\campusname}{campus of}
+  \renewcommand*{\cursoname}{course of}
+  \renewcommand*{\orientadorname}{Advisor:}
+  \renewcommand*{\coorientadorname}{Co-advisor:}
+  \renewcommand*{\bacharelname}{Bachelor}
+  % "Licenciate" foi o mais próximo que encontrei,
+  % mas pode não significar a mesma coisa que no Brasil:
+  % https://www.merriam-webster.com/dictionary/licentiate
+  % https://en.oxforddictionaries.com/definition/licentiate
+  % https://en.wikipedia.org/wiki/Licentiate_(degree)
+  \renewcommand*{\licenciaturaname}{Licenciate}
+}
+\addto\extrasenglish{
+  \instituicao{Federal University of Fronteira Sul}
+  \preambulo{Final undergraduate paper submitted as %
+      requirement to obtain the \imprimirgrau's degree in %
+      \imprimircurso\ from \imprimirinstituicao.}
+}
 
 % ==============================================================================
 % Comandos de dados
@@ -143,10 +165,13 @@ da Universidade Federal da Fronteira Sul baseada em abnTeX2]
 % quando os parâmetros não são parágrafos inteiros
 \providecommand*{\hoje}{\today}
 
-\providecommand*{\imprimirgrau}{Bacharel}
-\providecommand*{\licenciatura}{\renewcommand*{\imprimirgrau}{Licenciatura}}
+\newcommand*{\imprimircampusRotulo}{\campusname}
+
+\providecommand*{\imprimirgrau}{\bacharelname}
+\providecommand*{\licenciatura}{\renewcommand*{\imprimirgrau}{\licenciaturaname}}
 \newcommand*{\grau}[1]{\renewcommand*{\imprimirgrau}{#1}}
 
+\newcommand*{\imprimircursoRotulo}{\cursoname}
 \providecommand*{\imprimircurso}{}
 \newcommand*{\curso}[1]{\renewcommand*{\imprimircurso}{#1}}
 
@@ -209,8 +234,8 @@ da Universidade Federal da Fronteira Sul baseada em abnTeX2]
         \vspace{1cm}
 
         \MakeTextUppercase{\imprimirinstituicao}\\
-        \MakeTextUppercase{CAMPUS DE \imprimirlocal}\\
-        \MakeTextUppercase{CURSO DE \imprimircurso}
+        \MakeTextUppercase{\imprimircampusRotulo\ \imprimirlocal}\\
+        \MakeTextUppercase{\imprimircursoRotulo\ \imprimircurso}
 
         \vspace{3cm}
 
