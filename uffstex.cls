@@ -116,6 +116,15 @@ da Universidade Federal da Fronteira Sul baseada em abnTeX2]
 \setlength{\cftbeforechapterskip}{0cm}
 
 % ==============================================================================
+% Localização
+% ==============================================================================
+% inglês
+\addto\captionsenglish{
+  \renewcommand{\orientadorname}{Advisor:}
+  \renewcommand{\coorientadorname}{Co-advisor:}
+}
+
+% ==============================================================================
 % Strings da classe
 % ==============================================================================
 \instituicao{Universidade Federal da Fronteira Sul}

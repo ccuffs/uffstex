@@ -1,4 +1,12 @@
-\documentclass[serif]{uffstex}
+% opção global de idioma "brazilian"
+% (mesmo que uffstex ou abntex2 façam algo do tipo)
+% para escrever em inglês, colocar "english"
+% (o último idioma é o padrão)
+% esta opção é informada aos pacotes importados
+% com \usepackage (por exemplo, cleveref ao
+% nomear os links das referências) e para as
+% regras de hifenização
+\documentclass[serif, brazilian]{uffstex}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
@@ -28,6 +36,9 @@
 \coorientador{Coorientador}
 
 \begin{document}
+% ainda precisamos selecionar o idioma aqui
+% caso não seja português do brasil
+% \selectlanguage{english}
 
 % início da parte pré-textual
 % (opcional, abnTeX2 faz automaticamente)
