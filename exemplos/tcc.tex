@@ -93,13 +93,30 @@ Na \cref{fig:logo_uffs} podemos ver a logo da \imprimirinstituicao.
   \label{fig:logo_uffs}
 \end{figure}
 
+\chapter{Alíneas}
+
+A ABNT NBR 6024:2012 define que o texto que antecede as alíneas deve terminar com dois pontos; cada alínea deve iniciar com letra minúscula e terminar com ponto e vírgula, exceto a última, finalizada com ponto final, e a alínea que anteceder uma subalínea, finalizada com dois pontos:
+
+\begin{alineas}
+  \item item 1;
+  \item item 2;
+  \item item 3:
+  \begin{alineas} % ou \begin{subalineas} ou \begin{incisos}
+    \item item 3.1;
+    \item item 3.2;
+  \end{alineas}
+  \item item 4.
+\end{alineas}
+
+Note que se a última alínea for uma subalínea, ela será finalizada com ponto final. Além disso, a ABNT define o ponto e vírgula para terminar uma subalínea, enquanto a normalização de trabalhos da UFFS determina o uso da vírgula neste caso. Como desconhecemos se a ABNT define alguma flexibilidade na customização desta regra, deixamos exemplificado o uso da regra original.
+
 \chapter{Tabelas}
 
 Exemplos de tabelas\footnote{Todas as seções devem conter algum texto entre elas, segundo o manual de normalização de trabalhos da UFFS.}.
 
-\section{Tabelas \enquote{normais}}
+\section{Tabelas comuns}
 
-% tabelas normais do LaTeX, com um pouco
+% tabelas comuns do LaTeX, com um pouco
 % de beleza graças ao pacote booktabs
 \begin{table}[h]
   \centering
