@@ -163,6 +163,8 @@ da Universidade Federal da Fronteira Sul baseada em abnTeX2]
 % ==============================================================================
 % Versões com * das definições de comandos são recomendadas
 % quando os parâmetros não são parágrafos inteiros
+\newcommand*{\uffstex}{UFFS\TeX}
+
 \providecommand*{\hoje}{\today}
 
 \newcommand*{\imprimircampusRotulo}{\campusname}
