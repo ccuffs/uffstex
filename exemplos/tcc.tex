@@ -10,9 +10,15 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[
-    style=abnt,
-    sorting=nty % ordenar por nome, título e ano
-    % a NBR 6023 não especifica desempate de ordenação...
+  % estilo numérico é preferível e é
+  % permitido pela ABNT e pela UFFS :)
+  style=abnt-numeric,
+  % para o estilo autor-data:
+  % style=abnt,
+  % sorting=nty % ordenar por nome, título e ano
+  % (a NBR 6023 não especifica desempate de ordenação...)
+  % para mais informações sobreo estilo abnt
+  % do biblatex: https://github.com/abntex/biblatex-abnt
 ]{biblatex}
 
 \usepackage{booktabs}
