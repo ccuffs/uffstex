@@ -21,7 +21,7 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{uffstex}[2018/07/15 v0.4 Classe de trabalhos acadêmicos
+\ProvidesClass{uffstex}[2018/07/22 v0.5 Classe de trabalhos acadêmicos
 da Universidade Federal da Fronteira Sul baseada em abnTeX2]
 
 % ==============================================================================
@@ -122,6 +122,7 @@ da Universidade Federal da Fronteira Sul baseada em abnTeX2]
 % por mais que especifiquemos "brazilian" como opção global,
 % o abntex2 passa a opção "brazil" pro babel...
 \addto\captionsbrazil{
+  \providecommand*{\refname}{Refer\^encias}
   \providecommand*{\campusname}{campus de}
   \providecommand*{\cursoname}{curso de}
   \providecommand*{\bacharelname}{Bacharel}
@@ -139,6 +140,7 @@ da Universidade Federal da Fronteira Sul baseada em abnTeX2]
 
 % inglês
 \addto\captionsenglish{
+  \providecommand*{\refname}{References}
   \renewcommand*{\campusname}{campus of}
   \renewcommand*{\cursoname}{course of}
   \renewcommand*{\orientadorname}{Advisor:}
@@ -289,4 +291,30 @@ da Universidade Federal da Fronteira Sul baseada em abnTeX2]
 
     \textbf{\MakeTextUppercase{\imprimirlocal}}\\
     \textbf{\the\year}
+}
+
+% ==============================================================================
+% Correção do título da seção das referências
+% ==============================================================================
+\AtBeginDocument{
+  \@ifpackageloaded{biblatex}{
+    % definição do título baseada no abnTeX2
+    % (https://github.com/abntex/abntex2/blob/master/tex/latex/abntex2/abntex2.cls#L537,
+    % que por sua vez é baseada na definição
+    % padrão do Memoir), mas utilizando o
+    % comando \defbibheading como recomendado
+    % pela documentação do BibLaTeX quando
+    % ele for carregado
+    \defbibheading{abnt}[\refname]{
+      \chapter*{#1}
+      \bibmark
+      \ifmemoirbibintoc{ % front-end do BibLaTeX
+        \phantomsection
+        \addcontentsline{toc}{chapter}{\texorpdfstring{\MakeTextUppercase{#1}}{#1}}
+      }{}
+      \prebibhook
+    }
+
+    \providecommand*{\imprimirreferencias}{\printbibliography[heading=abnt]}
+  }{}
 }
