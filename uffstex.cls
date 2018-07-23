@@ -21,7 +21,7 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{uffstex}[2018/07/22 v0.5 Classe de trabalhos acadêmicos
+\ProvidesClass{uffstex}[2018/07/23 v0.5.1 Classe de trabalhos acadêmicos
 da Universidade Federal da Fronteira Sul baseada em abnTeX2]
 
 % ==============================================================================
@@ -314,7 +314,5 @@ da Universidade Federal da Fronteira Sul baseada em abnTeX2]
       }{}
       \prebibhook
     }
-
-    \providecommand*{\imprimirreferencias}{\printbibliography[heading=abnt]}
   }{}
 }
