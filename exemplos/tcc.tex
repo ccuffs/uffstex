@@ -9,6 +9,11 @@
 \documentclass[serif, brazilian]{uffstex}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage[
+    style=abnt,
+    sorting=nty % ordenar por nome, título e ano
+    % a NBR 6023 não especifica desempate de ordenação...
+]{biblatex}
 
 \usepackage{booktabs}
 \usepackage{csquotes}
@@ -25,6 +30,8 @@
 % e amsmath (pacote newtxmath aparentemente
 % carrega amsmath)
 \usepackage{cleveref}
+
+\addbibresource{refs.bib}
 
 \autor{CC UFFS}
 \titulo{\uffstex}
@@ -78,6 +85,12 @@ Conteúdo da seção quaternária.
 \subsubsubsection{Seção quinária}
 
 Conteúdo da seção quinária.
+
+\chapter{Citações}
+
+Segundo \textcite{halim3rd}, codar um array de sufixos é mais fácil que uma árvore de sufixos.
+
+Codar um array de sufixos é mais fácil que uma árvore de sufixos \cite{halim3rd}.
 
 \chapter{Imagens}
 
@@ -170,4 +183,9 @@ Exemplos de tabelas\footnote{Todas as seções devem conter algum texto entre el
 \end{table}
 
 \footnotetext{População do país, não da capital!}
+
+\postextual
+
+\printbibliography
+
 \end{document}
