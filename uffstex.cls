@@ -21,7 +21,7 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{uffstex}[2018/07/23 v0.5.1 Classe de trabalhos acadêmicos
+\ProvidesClass{uffstex}[2018/07/24 v0.5.2 Classe de trabalhos acadêmicos
 da Universidade Federal da Fronteira Sul baseada em abnTeX2]
 
 % ==============================================================================
@@ -122,7 +122,6 @@ da Universidade Federal da Fronteira Sul baseada em abnTeX2]
 % por mais que especifiquemos "brazilian" como opção global,
 % o abntex2 passa a opção "brazil" pro babel...
 \addto\captionsbrazil{
-  \providecommand*{\refname}{Refer\^encias}
   \providecommand*{\campusname}{campus de}
   \providecommand*{\cursoname}{curso de}
   \providecommand*{\bacharelname}{Bacharel}
@@ -140,7 +139,6 @@ da Universidade Federal da Fronteira Sul baseada em abnTeX2]
 
 % inglês
 \addto\captionsenglish{
-  \providecommand*{\refname}{References}
   \renewcommand*{\campusname}{campus of}
   \renewcommand*{\cursoname}{course of}
   \renewcommand*{\orientadorname}{Advisor:}
