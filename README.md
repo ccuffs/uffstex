@@ -33,6 +33,7 @@ Este é um projeto em construção. Por enquanto não há documentação, mas o 
 ### Links relevantes
 
 - [abnTeX2](https://github.com/abntex/abntex2/)
+- [Estilo ABNT do biblatex](https://github.com/abntex/biblatex-abnt)
 - [Normalização de trabalhos da UFFS](https://www.uffs.edu.br/campi/chapeco/biblioteca/normalizacao-de-trabalhos)
 
 # Como contribuir
