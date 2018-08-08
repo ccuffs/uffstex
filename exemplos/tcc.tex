@@ -1,44 +1,48 @@
-% opção global de idioma "brazilian"
-% (mesmo que uffstex ou abntex2 façam algo do tipo)
-% para escrever em inglês, colocar "english"
-% (o último idioma é o padrão)
-% esta opção é informada aos pacotes importados
+% Opção global de idioma "brazilian"
+% (mesmo que uffstex ou abntex2 façam algo do tipo).
+% Para escrever em inglês, colocar "english"
+% (o último idioma é o padrão).
+% Esta opção é informada aos pacotes importados
 % com \usepackage (por exemplo, cleveref ao
 % nomear os links das referências) e para as
-% regras de hifenização
+% regras de hifenização.
+% A opção "serif" estiliza os títulos com a versão
+% serifada da fonte escolhida (abntex2 utiliza
+% estilo sem serifa por padrão).
 \documentclass[serif, brazilian]{uffstex}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[
-  % estilo numérico é preferível e é
+  % Estilo numérico é preferível e é
   % permitido pela ABNT e pela UFFS :)
   style=abnt-numeric,
-  % para o estilo autor-data:
-  % style=abnt,
-  % sorting=nty % ordenar por nome, título e ano
+  % Para o estilo autor-data:
+  % style=abnt
+  % Ordenação:
+  % sorting=nty % por nome, título e ano
   % (a NBR 6023 não especifica desempate de ordenação...)
-  % para mais informações sobreo estilo abnt
-  % do biblatex: https://github.com/abntex/biblatex-abnt
 ]{biblatex}
 
 \usepackage{booktabs}
 \usepackage{csquotes}
-% o abnTeX2 e a uffstex não obrigam
+% O abnTeX2 e o uffstex não obrigam
 % a utilização de alguma fonte, então, se
 % nenhuma for especificada, a padrão do
-% LaTeX é utilizada (Computer Modern)
-% as fontes do pacote newtx são recomendadas
-% para quem deseja utilizar Times New Roman
+% LaTeX é utilizada (Computer Modern).
+% As fontes do pacote newtx são recomendadas
+% para quem deseja utilizar Times New Roman.
 \usepackage{newtxtext}
 \usepackage{newtxmath}
 % cleveref deve ser carregado após hyperref
-% (carregado automaticamente pelo abntex2)
+% (que é carregado automaticamente pelo abntex2)
 % e amsmath (pacote newtxmath aparentemente
-% carrega amsmath)
+% carrega amsmath).
 \usepackage{cleveref}
 
+% Adiciona arquivo de referências para o biblatex
 \addbibresource{refs.bib}
 
+% Comandos de dados
 \autor{CC UFFS}
 \titulo{\uffstex}
 \subtitulo{Classe de trabalhos acadêmicos da UFFS}
@@ -49,27 +53,27 @@
 \coorientador{Beltrano}
 
 \begin{document}
-% ainda precisamos selecionar o idioma aqui
+% Ainda precisamos selecionar o idioma aqui
 % para imprimir os rótulos no idioma correto,
-% caso não seja português do brasil
+% caso não seja português do Brasil.
 % \selectlanguage{english}
 
-% início da parte pré-textual
-% (opcional, abnTeX2 faz automaticamente)
+% Início da parte pré-textual
+% (opcional, abnTeX2 faz automaticamente).
 \pretextual
 
 \imprimircapa
 
 \imprimirfolhaderosto
 
-% coloca o sumário no "sumário do PDF"
-% (chamado de bookmark do PDF)
+% Coloca o sumário no "sumário do PDF"
+% (chamado de bookmark do PDF).
 \pdfbookmark{\contentsname}{toc}
-% versão com * não coloca o próprio sumário no sumário
+% Versão com * não coloca o próprio sumário no sumário
 \tableofcontents*
 \clearpage
 
-% início da parte textual
+% Início da parte textual
 \textual
 
 \chapter{Seção primária}
@@ -96,8 +100,8 @@ Conteúdo da seção quinária.
 
 \section{Indiretas}
 
-% para citar com número de página, basta
-% informá-la como parâmetro opcional
+% Para citar com número de página, basta
+% informá-la como parâmetro opcional.
 Segundo \textcite{halim3rd}, codar um array de sufixos é mais fácil que uma árvore de sufixos. Ou então: codar um array de sufixos é mais fácil que uma árvore de sufixos \cite[253]{halim3rd}.
 
 \section{Diretas}
@@ -151,19 +155,19 @@ Exemplos de tabelas\footnote{Todas as seções devem conter algum texto entre el
 
 \section{Tabelas comuns}
 
-% tabelas comuns do LaTeX, com um pouco
-% de beleza graças ao pacote booktabs
+% Tabelas comuns do LaTeX, com um pouco
+% de beleza graças ao pacote booktabs.
 \begin{table}[h]
   \centering
   % \caption é o rótulo (título, identificação), que deve estar
-  % acima do elemento (tabelas, figuras, etc)
+  % acima do elemento (tabelas, figuras, etc).
   \caption{Países, capitais e população total aproximada}
-  % @{} remove o espaço nas laterais
+  % @{} remove o espaço nas laterais.
   \begin{tabular}{@{}llr@{}}
     \toprule % linha superior
-    % notas de rodapé não se dão bem com tabelas, então
+    % Notas de rodapé não se dão bem com tabelas, então
     % precisa usar \footnotemark com \footnotetext ao
-    % invés de apenas \footnote{<texto>}
+    % invés de apenas \footnote{<texto>}.
     País   & Capital  & População\footnotemark\\
     \midrule % linha do meio
     Brasil & Brasília & 208 milhões\\
@@ -173,9 +177,9 @@ Exemplos de tabelas\footnote{Todas as seções devem conter algum texto entre el
     \bottomrule % linha inferior
   \end{tabular}
   % \legend é a legenda para indicar a fonte e outras informações,
-  % se necessário, e deve estar abaixo do elemento
+  % se necessário, e deve estar abaixo do elemento.
   \legend{Fonte: elaborado pelos autores com dados do Google}
-  % etiqueta para referenciar o elemento no texto
+  % Etiqueta para referenciar o elemento no texto.
   \label{tab:paises}
 \end{table}
 
@@ -208,9 +212,11 @@ Exemplos de tabelas\footnote{Todas as seções devem conter algum texto entre el
 
 \postextual
 
-% se utilizar o pacote biblatex, como neste exemplo:
+% Para imprimir as referências,
+% se utilizar o pacote biblatex (recomendado),
+% como neste exemplo:
 \printbibliography[heading=abnt]
-% se utilizar o abntex2cite, consultar a documentação:
+% E se utilizar o abntex2cite, consultar a documentação:
 % https://www.abntex.net.br/#manuais-do-abntex2
 % ou
 % https://ctan.org/pkg/abntex2
