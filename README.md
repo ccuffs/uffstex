@@ -25,6 +25,11 @@ ln -s caminho/para/uffstex/logo.png caminho/para/projeto/
 
 Deste modo, basta um `git pull` para atualizar sua versão do uffstex e não há interferência com um possível repositório do seu próprio projeto.
 
+### Dependências
+
+- Sua distribuição preferida de LaTeX
+- abnTeX2 (e.g. `texlive-abntex2`)
+- Estilo ABNT para bibLaTeX (e.g. `texlive-biblatex-abnt`)
 
 ## Mais informações
 
