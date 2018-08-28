@@ -118,20 +118,6 @@ Peço perdão às crianças por ter dedicado este livro a um adulto. Tenho uma b
 \textit{A Léon Werth quando era pequeno.} \cite{exupery15}
 \end{citacao}
 
-\chapter{Imagens}
-
-Na \autoref{fig:logo_uffs} podemos ver a nova assinatura visual da \imprimirinstituicao.
-
-Na \cref{fig:logo_uffs} podemos ver a nova assinatura visual da \imprimirinstituicao.
-
-\begin{figure}[h]
-  \centering
-  \caption{Nova assinatura visual da UFFS}
-  \includegraphics[scale=0.5]{logo.png}
-  \legend{Fonte: UFFS}
-  \label{fig:logo_uffs}
-\end{figure}
-
 \chapter{Alíneas}
 
 A ABNT NBR 6024:2012 define que o texto que antecede as alíneas deve terminar com dois pontos; cada alínea deve iniciar com letra minúscula e terminar com ponto e vírgula, exceto a última, finalizada com ponto final, e a alínea que anteceder uma subalínea, finalizada com dois pontos:
@@ -176,9 +162,8 @@ Exemplos de tabelas\footnote{Todas as seções devem conter algum texto entre el
     China  & Pequim   & 1.4 bilhões\\
     \bottomrule % linha inferior
   \end{tabular}
-  % \legend é a legenda para indicar a fonte e outras informações,
-  % se necessário, e deve estar abaixo do elemento.
-  \legend{Fonte: elaborado pelos autores com dados do Google}
+  \fonte{elaborado pelos autores com dados do Google}
+  \nota{Outras informações, se necessário.}
   % Etiqueta para referenciar o elemento no texto.
   \label{tab:paises}
 \end{table}
@@ -209,6 +194,31 @@ Exemplos de tabelas\footnote{Todas as seções devem conter algum texto entre el
 \end{table}
 
 \footnotetext{População do país, não da capital!}
+
+\chapter{Imagens}
+
+Na \autoref{fig:logo_uffs} podemos ver a nova assinatura visual da \imprimirinstituicao.
+
+\begin{figure}[h]
+  \centering
+  \caption{Nova assinatura visual da UFFS}
+  \includegraphics[scale=0.5]{logo.png}
+  \fonte{UFFS}
+  \label{fig:logo_uffs}
+\end{figure}
+
+Na \cref{fig:logo_uffs_ibge} podemos ver a nova assinatura visual da \imprimirinstituicao\ reaproveitando o ambiente das tabelas do IBGE:
+
+\begin{figure}[h]
+  \ibgetab{
+    \caption{Nova assinatura visual da UFFS}
+    \label{fig:logo_uffs_ibge}
+  }{
+    \includegraphics[scale=0.5]{logo.png}
+  }{
+    \fonte{UFFS}
+  }
+\end{figure}
 
 \postextual
 
