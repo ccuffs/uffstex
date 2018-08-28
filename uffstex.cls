@@ -229,8 +229,7 @@ da Universidade Federal da Fronteira Sul baseada em abnTeX2]
 
         % a logo deveria ser 20mm x 20mm, mas
         % daí vai distorcer... colocando só
-        % altura, o LaTeX a escala (largura
-        % ficará menor)
+        % altura, o LaTeX escala a largura
         \includegraphics[height=20mm]{logo.png}
 
         \vspace{1cm}
@@ -245,8 +244,10 @@ da Universidade Federal da Fronteira Sul baseada em abnTeX2]
 
         \vspace{5cm}
 
-        \MakeTextUppercase{\imprimirtitulo}\\
-        \textmd{\MakeTextUppercase{\imprimirsubtitulo}}
+        \MakeTextUppercase{\imprimirtitulo}
+        \abntex@ifnotempty{\imprimirsubtitulo}{
+            \\\textmd{\MakeTextUppercase{\imprimirsubtitulo}}
+        }
 
         \vspace{\fill}
 
@@ -266,8 +267,10 @@ da Universidade Federal da Fronteira Sul baseada em abnTeX2]
 
     \vspace{6cm}
 
-    \MakeTextUppercase{\imprimirtitulo}\\
-    \textmd{\MakeTextUppercase{\imprimirsubtitulo}}
+    \MakeTextUppercase{\imprimirtitulo}
+    \abntex@ifnotempty{\imprimirsubtitulo}{
+        \\\textmd{\MakeTextUppercase{\imprimirsubtitulo}}
+    }
 
     \vspace{2cm}
 
@@ -280,8 +283,10 @@ da Universidade Federal da Fronteira Sul baseada em abnTeX2]
 
             \imprimirpreambulo
 
-            \imprimirorientadorRotulo\ \imprimirorientador\\
-            \imprimircoorientadorRotulo\ \imprimircoorientador
+            \imprimirorientadorRotulo\ \imprimirorientador
+            \abntex@ifnotempty{\imprimircoorientador}{
+                \\\imprimircoorientadorRotulo\ \imprimircoorientador
+            }
         \end{minipage}
     }
 
