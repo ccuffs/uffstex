@@ -21,7 +21,7 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{uffstex}[2018/07/24 v0.5.2 Classe de trabalhos acadêmicos
+\ProvidesClass{uffstex}[2018/08/28 v0.5.4 Classe de trabalhos acadêmicos
 da Universidade Federal da Fronteira Sul baseada em abnTeX2]
 
 % ==============================================================================

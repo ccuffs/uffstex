@@ -27,7 +27,7 @@ Deste modo, basta um `git pull` para atualizar sua versão do uffstex e não há
 
 ### Dependências
 
-- Sua distribuição preferida de LaTeX
+- Sua distribuição preferida de LaTeX (contendo `graphicx`, `indentfirst`, `textcase` e `xpatch`)
 - abnTeX2 (e.g. `texlive-abntex2`)
 - Estilo ABNT para bibLaTeX (e.g. `texlive-biblatex-abnt`)
 
