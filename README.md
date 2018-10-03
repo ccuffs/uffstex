@@ -25,11 +25,13 @@ ln -s caminho/para/uffstex/logo.png caminho/para/projeto/
 
 Deste modo, basta um `git pull` para atualizar sua versão do uffstex e não há interferência com um possível repositório do seu próprio projeto.
 
-### Dependências
+## Dependências
 
 - Sua distribuição preferida de LaTeX (contendo `graphicx`, `indentfirst`, `textcase` e `xpatch`)
-- abnTeX2 (e.g. `texlive-abntex2`)
-- Estilo ABNT para bibLaTeX (e.g. `texlive-biblatex-abnt`)
+- [abnTeX2](https://ctan.org/pkg/abntex2)
+- Estilo ABNT para bibLaTeX ([biblatex-abnt](https://ctan.org/pkg/biblatex-abnt))
+
+No caso do Tex Live (pelo menos no Fedora e Ubuntu), **recomenda-se fortemente** que seja utilizado o [instalador](https://www.tug.org/texlive/acquire-netinstall.html) disponibilizado pelo projeto ao invés dos pacotes disponíveis nos repositórios padrões do sistema operacional, pois ele possui as versões mais recentes das dependências do  uffstex. Na sua maioria, versões mais antigas ainda funcionam, mas algumas funcionalidades podem ser comprometidas, como a ausência das strings de bibliografia para "*sineloco*" e "*sinenomine*" ao imprimir as referências.
 
 ## Mais informações
 
