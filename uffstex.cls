@@ -21,8 +21,7 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{uffstex}[2018/08/28 v0.5.4 Classe de trabalhos acadêmicos
-da Universidade Federal da Fronteira Sul baseada em abnTeX2]
+\ProvidesClass{uffstex}[2018/10/03 v0.5.5]
 
 % ==============================================================================
 % Carregando pacotes necessários
