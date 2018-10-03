@@ -6,6 +6,14 @@ Classe de trabalhos acadêmicos da Universidade Federal da Fronteira Sul baseada
 
 Simplesmente coloque os arquivos `uffstex.cls` e `logo.png` na pasta do seu projeto LaTeX.
 
+## Dependências
+
+- Sua distribuição preferida de LaTeX (contendo `graphicx`, `indentfirst`, `textcase` e `xpatch`)
+- [abnTeX2](https://ctan.org/pkg/abntex2)
+- Estilo ABNT para bibLaTeX ([biblatex-abnt](https://ctan.org/pkg/biblatex-abnt))
+
+No caso do Tex Live, **recomenda-se fortemente** que seja utilizado o [instalador](https://www.tug.org/texlive/acquire-netinstall.html) disponibilizado pelo projeto ao invés dos pacotes disponíveis nos repositórios padrões do seu sistema operacional, pois ele possui as versões mais recentes das dependências do uffstex. Em geral, versões mais antigas ainda funcionam, mas podem apresentar comportamentos não esperados ou não testados.
+
 ## Uso local
 
 Conhece o [latexmk](http://personal.psu.edu/jcc8/software/latexmk/)? Ele automatiza o processo de compilação. Por exemplo:
@@ -24,14 +32,6 @@ ln -s caminho/para/uffstex/logo.png caminho/para/projeto/
 ```
 
 Deste modo, basta um `git pull` para atualizar sua versão do uffstex e não há interferência com um possível repositório do seu próprio projeto.
-
-## Dependências
-
-- Sua distribuição preferida de LaTeX (contendo `graphicx`, `indentfirst`, `textcase` e `xpatch`)
-- [abnTeX2](https://ctan.org/pkg/abntex2)
-- Estilo ABNT para bibLaTeX ([biblatex-abnt](https://ctan.org/pkg/biblatex-abnt))
-
-No caso do Tex Live (pelo menos no Fedora e Ubuntu), **recomenda-se fortemente** que seja utilizado o [instalador](https://www.tug.org/texlive/acquire-netinstall.html) disponibilizado pelo projeto ao invés dos pacotes disponíveis nos repositórios padrões do sistema operacional, pois ele possui as versões mais recentes das dependências do  uffstex. Na sua maioria, versões mais antigas ainda funcionam, mas algumas funcionalidades podem ser comprometidas, como a ausência das strings de bibliografia para "*sineloco*" e "*sinenomine*" ao imprimir as referências.
 
 ## Mais informações
 
