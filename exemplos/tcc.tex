@@ -23,6 +23,7 @@
   % (a NBR 6023 não especifica desempate de ordenação...)
 ]{biblatex}
 
+\usepackage{xcolor}
 \usepackage{booktabs}
 \usepackage{csquotes}
 % O abnTeX2 e o uffstex não obrigam
@@ -38,6 +39,9 @@
 % e amsmath (pacote newtxmath aparentemente
 % carrega amsmath).
 \usepackage{cleveref}
+
+% verde padrão da UFFS segundo a identidade visual
+\providecolor{uffsgreen}{RGB}{0, 105, 62}
 
 % Adiciona arquivo de referências para o biblatex
 \addbibresource{refs.bib}
@@ -219,6 +223,15 @@ Na \cref{fig:logo_uffs_ibge} podemos ver a nova assinatura visual da \imprimirin
     \fonte{UFFS}
   }
 \end{figure}
+
+\chapter{Miscelânea}
+
+\textcolor{uffsgreen}{Podemos utilizar a cor verde oficial da UFFS através
+do pacote \texttt{xcolor} e do comando:}
+
+\begin{verbatim}
+  \providecolor{uffsgreen}{RGB}{0, 105, 62}
+\end{verbatim}
 
 \postextual
 
