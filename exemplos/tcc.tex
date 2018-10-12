@@ -102,11 +102,11 @@ Conteúdo da seção quinária.
 
 % Para citar com número de página, basta
 % informá-la como parâmetro opcional.
-Segundo \textcite{halim3rd}, codar um array de sufixos é mais fácil que uma árvore de sufixos. Ou então: codar um array de sufixos é mais fácil que uma árvore de sufixos \cite[253]{halim3rd}.
+Segundo \textcite{halim3rd}, codar um array de sufixos é mais fácil que uma árvore de sufixos. Ou então: codar um array de sufixos é mais fácil que uma árvore de sufixos~\cite[253]{halim3rd}.
 
 \section{Diretas}
 
-Um dos trechos mais famosos do livro O Pequeno Príncipe é \enquote{O essencial é invisível aos olhos}\cite[58]{exupery15}.
+Um dos trechos mais famosos do livro O Pequeno Príncipe é \enquote{O essencial é invisível aos olhos}~\cite[58]{exupery15}.
 
 \subsection{Com mais de três linhas}
 
@@ -115,7 +115,7 @@ Um dos trechos mais famosos do livro O Pequeno Príncipe é \enquote{O essencial
 
 Peço perdão às crianças por ter dedicado este livro a um adulto. Tenho uma boa desculpa: esse adulto é o meu melhor amigo no mundo. Tenho outra desculpa: esse adulto pode entender tudo, até livros para crianças. Tenho uma terceira desculpa: esse adulto mora na França, onde sente fome e frio. Também precisa ser consolado. Se todas essas desculpas não bastarem, então quero dedicar este livro à criança que esse adulto foi um dia. Todos os adultos primeiro foram crianças. (Mas poucos se lembram disso.) Portanto, corrijo minha dedicatória:
 
-\textit{A Léon Werth quando era pequeno.} \cite{exupery15}
+\textit{A Léon Werth quando era pequeno.}~\cite{exupery15}
 \end{citacao}
 
 \chapter{Alíneas}
@@ -147,7 +147,8 @@ Exemplos de tabelas\footnote{Todas as seções devem conter algum texto entre el
   \centering
   % \caption é o rótulo (título, identificação), que deve estar
   % acima do elemento (tabelas, figuras, etc).
-  \caption{Países, capitais e população total aproximada}
+  \caption{Países, capitais e população total aproximada}%
+  \label{tab:paises}
   % @{} remove o espaço nas laterais.
   \begin{tabular}{@{}llr@{}}
     \toprule % linha superior
@@ -165,7 +166,6 @@ Exemplos de tabelas\footnote{Todas as seções devem conter algum texto entre el
   \fonte{elaborado pelos autores com dados do Google}
   \nota{Outras informações, se necessário.}
   % Etiqueta para referenciar o elemento no texto.
-  \label{tab:paises}
 \end{table}
 
 \section{Tabelas do padrão IBGE}
@@ -173,7 +173,7 @@ Exemplos de tabelas\footnote{Todas as seções devem conter algum texto entre el
 \begin{table}[htb]
   % \ibgetab{<rótulo e etiqueta>}{<conteúdo>}{<legenda(s)>}
   \ibgetab{%
-    \caption{Um Exemplo de tabela conforme o padrão IBGE}
+    \caption{Um Exemplo de tabela conforme o padrão IBGE}%
     \label{tabela-ibge}
   }{
     \begin{tabular}{llr}
@@ -201,17 +201,17 @@ Na \autoref{fig:logo_uffs} podemos ver a nova assinatura visual da \imprimirinst
 
 \begin{figure}[h]
   \centering
-  \caption{Nova assinatura visual da UFFS}
+  \caption{Nova assinatura visual da UFFS}%
+  \label{fig:logo_uffs}
   \includegraphics[scale=0.5]{logo.png}
   \fonte{UFFS}
-  \label{fig:logo_uffs}
 \end{figure}
 
 Na \cref{fig:logo_uffs_ibge} podemos ver a nova assinatura visual da \imprimirinstituicao\ reaproveitando o ambiente das tabelas do IBGE:
 
 \begin{figure}[h]
   \ibgetab{
-    \caption{Nova assinatura visual da UFFS}
+    \caption{Nova assinatura visual da UFFS}%
     \label{fig:logo_uffs_ibge}
   }{
     \includegraphics[scale=0.5]{logo.png}
