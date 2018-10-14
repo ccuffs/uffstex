@@ -305,23 +305,16 @@
 }
 
 % ==============================================================================
-% Lista de algoritmos
+% Ambiente `algoritmo` e definição da lista de algoritmos
 % ==============================================================================
+\newfloat{algoritmo}{\algoritmoext}{\algoritmoname}
+
+\newlistof{listofalgoritmos}{\algoritmoext}{\listalgoritmoname}
+\newlistentry{algoritmo}{\algoritmoext}{0}
+\renewcommand*{\cftalgoritmoname}{\algoritmoname\space}
+\renewcommand*{\cftalgoritmoaftersnum}{\hfill\textendash\hfill}
+
 \AtBeginDocument{
-    \@ifpackageloaded{float}{
-        \floatstyle{plaintop}
-        \newfloat{algoritmo}{htbp}{\algoritmoext}
-        \floatname{algoritmo}{\algoritmoname}
-    }{
-        % macro do Memoir
-        \newfloat{algoritmo}{\algoritmoext}{\algoritmoname}
-    }
-
-    \newlistof{listofalgoritmos}{\algoritmoext}{\listalgoritmoname}
-    \newlistentry{algoritmo}{\algoritmoext}{0}
-    \renewcommand*{\cftalgoritmoname}{\algoritmoname\space}
-    \renewcommand*{\cftalgoritmoaftersnum}{\hfill\textendash\hfill}
-
     \@ifpackageloaded{cleveref}{
         \crefname{algoritmo}{\algoritmoname}{\algoritmoname{}s}
     }{}
