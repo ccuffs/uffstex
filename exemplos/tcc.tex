@@ -39,6 +39,12 @@
 % e amsmath (pacote newtxmath aparentemente
 % carrega amsmath).
 \usepackage{cleveref}
+\usepackage[
+  linesnumbered,
+  lined,
+  boxed,
+  commentsnumbered
+]{algorithm2e}
 
 % verde padrão da UFFS segundo a identidade visual
 \providecolor{uffsgreen}{RGB}{0, 105, 62}
@@ -74,12 +80,16 @@
 \listoffigures*
 \cleardoublepage%
 
+\pdfbookmark{\listalgoritmoname}{\algoritmoext}
+\listofalgoritmos*
+\cleardoublepage%
+
 % Coloca o sumário no "sumário do PDF"
 % (chamado de bookmark do PDF).
 \pdfbookmark{\contentsname}{toc}
 % Versão com * não coloca o próprio sumário no sumário
 \tableofcontents*
-\cleardoublepage
+\cleardoublepage%
 
 % Início da parte textual
 \textual
@@ -230,12 +240,47 @@ Na \cref{fig:logo_uffs_ibge} podemos ver a nova assinatura visual da \imprimirin
 
 \chapter{Miscelânea}
 
+\section{Cores}
+
 \textcolor{uffsgreen}{Podemos utilizar a cor verde oficial da UFFS através
 do pacote \texttt{xcolor} e do comando:}
 
 \begin{verbatim}
-  \providecolor{uffsgreen}{RGB}{0, 105, 62}
+\providecolor{uffsgreen}{RGB}{0, 105, 62}
 \end{verbatim}
+
+\section{Algoritmos}
+
+Por ora, o único pacote que funcionou com o ambiente \texttt{ibgetab} foi o
+\texttt{algorithm2e}.
+
+\begin{algoritmo}[h]
+\ibgetab{
+  \caption{Como escrever algoritmos}%
+  \label{alg:exemplo}
+}{
+\begin{algorithm}[H]
+  \SetAlgoLined
+  \KwData{this text}
+  \KwResult{how to write algorithm with \LaTeX2e}
+
+  initialization\;
+  \While{not at end of this document}{
+    read current\;
+    \eIf{understand}{
+      go to next section\;
+      current section becomes this one\;
+    }{
+      go back to the beginning of current section\;
+    }
+  }
+  % não usamos caption aqui por causa do \ibgetab
+  %\caption{How to write algorithms}
+\end{algorithm}
+}{
+  \fonte{os autores do \href{https://ctan.org/pkg/algorithm2e}{algorithm2e}}
+}
+\end{algoritmo}
 
 \postextual
 
