@@ -21,7 +21,7 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{uffstex}[2018/10/03 v0.5.5]
+\ProvidesClass{uffstex}[2018/10/14 v0.6]
 
 % ==============================================================================
 % Carregando pacotes necessários
@@ -75,6 +75,11 @@
 \LoadClass{abntex2}
 
 % ==============================================================================
+% "Constantes"
+% ==============================================================================
+\providecommand*{\algoritmoext}{loalg}
+
+% ==============================================================================
 % Patches
 % ==============================================================================
 % patch pra deixar seções em caixa alta no sumário
@@ -125,6 +130,8 @@
   \providecommand*{\cursoname}{curso de}
   \providecommand*{\bacharelname}{Bacharel}
   \providecommand*{\licenciaturaname}{Licenciatura}
+  \providecommand*{\algoritmoname}{Algoritmo}
+  \providecommand*{\listalgoritmoname}{Lista de Algoritmos}
 }
 \addto\extrasbrazil{
   \instituicao{Universidade Federal da Fronteira Sul}
@@ -149,6 +156,8 @@
   % https://en.oxforddictionaries.com/definition/licentiate
   % https://en.wikipedia.org/wiki/Licentiate_(degree)
   \renewcommand*{\licenciaturaname}{Licenciate}
+  \renewcommand*{\algoritmoname}{Algorithm}
+  \renewcommand*{\listalgoritmoname}{List of Algorithms}
 }
 \addto\extrasenglish{
   \instituicao{Federal University of Fronteira Sul}
@@ -293,6 +302,29 @@
 
     \textbf{\MakeTextUppercase{\imprimirlocal}}\\
     \textbf{\the\year}
+}
+
+% ==============================================================================
+% Lista de algoritmos
+% ==============================================================================
+\AtBeginDocument{
+    \@ifpackageloaded{float}{
+        \floatstyle{plaintop}
+        \newfloat{algoritmo}{htbp}{\algoritmoext}
+        \floatname{algoritmo}{\algoritmoname}
+    }{
+        % macro do Memoir
+        \newfloat{algoritmo}{\algoritmoext}{\algoritmoname}
+    }
+
+    \newlistof{listofalgoritmos}{\algoritmoext}{\listalgoritmoname}
+    \newlistentry{algoritmo}{\algoritmoext}{0}
+    \renewcommand*{\cftalgoritmoname}{\algoritmoname\space}
+    \renewcommand*{\cftalgoritmoaftersnum}{\hfill\textendash\hfill}
+
+    \@ifpackageloaded{cleveref}{
+        \crefname{algoritmo}{\algoritmoname}{\algoritmoname{}s}
+    }{}
 }
 
 % ==============================================================================
