@@ -21,7 +21,7 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{uffstex}[2018/10/14 v0.6]
+\ProvidesClass{uffstex}[2018/10/19 v0.6.1]
 
 % ==============================================================================
 % Carregando pacotes necessários
@@ -131,7 +131,7 @@
   \providecommand*{\bacharelname}{Bacharel}
   \providecommand*{\licenciaturaname}{Licenciatura}
   \providecommand*{\algoritmoname}{Algoritmo}
-  \providecommand*{\listalgoritmoname}{Lista de Algoritmos}
+  \providecommand*{\listalgoritmoname}{Lista de \algoritmoname{}s}
 }
 \addto\extrasbrazil{
   \instituicao{Universidade Federal da Fronteira Sul}
@@ -157,7 +157,7 @@
   % https://en.wikipedia.org/wiki/Licentiate_(degree)
   \renewcommand*{\licenciaturaname}{Licenciate}
   \renewcommand*{\algoritmoname}{Algorithm}
-  \renewcommand*{\listalgoritmoname}{List of Algorithms}
+  \renewcommand*{\listalgoritmoname}{List of \algoritmoname{}s}
 }
 \addto\extrasenglish{
   \instituicao{Federal University of Fronteira Sul}
