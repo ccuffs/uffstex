@@ -21,11 +21,12 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{uffstex}[2018/10/19 v0.6.1]
+\ProvidesClass{uffstex}[2018/11/18 v0.7.0]
 
 % ==============================================================================
 % Carregando pacotes necessários
 % ==============================================================================
+\RequirePackage{xparse}
 \RequirePackage{xpatch}
 \RequirePackage{graphicx}
 \RequirePackage{textcase}
@@ -130,6 +131,9 @@
   \providecommand*{\cursoname}{curso de}
   \providecommand*{\bacharelname}{Bacharel}
   \providecommand*{\licenciaturaname}{Licenciatura}
+  \providecommand*{\bancaname}{banca avaliadora}
+  \providecommand*{\declaracaoaprovacao}{Este trabalho de conclus\~ao de curso
+    foi defendido e aprovado pela \bancaname\ em:}
   \providecommand*{\algoritmoname}{Algoritmo}
   \providecommand*{\listalgoritmoname}{Lista de \algoritmoname{}s}
 }
@@ -156,12 +160,16 @@
   % https://en.oxforddictionaries.com/definition/licentiate
   % https://en.wikipedia.org/wiki/Licentiate_(degree)
   \renewcommand*{\licenciaturaname}{Licenciate}
+  \renewcommand*{\folhadeaprovacaoname}{Approval sheet}
+  \renewcommand*{\bancaname}{examination committee}
+  \renewcommand*{\declaracaoaprovacao}{This final undergraduate work
+    was defended and approved by the \bancaname\ on:}
   \renewcommand*{\algoritmoname}{Algorithm}
   \renewcommand*{\listalgoritmoname}{List of \algoritmoname{}s}
 }
 \addto\extrasenglish{
   \instituicao{Federal University of Fronteira Sul}
-  \preambulo{Final undergraduate paper submitted as %
+  \preambulo{Final undergraduate work submitted as %
       requirement to obtain the \imprimirgrau's degree in %
       \imprimircurso\ from \imprimirinstituicao.}
 }
@@ -173,7 +181,7 @@
 % quando os parâmetros não são parágrafos inteiros
 \newcommand*{\uffstex}{UFFS\TeX}
 
-\providecommand*{\hoje}{\today}
+\providecommand*{\hoje}{\the\year-\the\month-\the\day}
 
 \newcommand*{\imprimircampusRotulo}{\campusname}
 
@@ -305,6 +313,69 @@
 }
 
 % ==============================================================================
+% Folha de aprovação
+% ==============================================================================
+% o regulamento de TCC de CC exige pelo menos 3 membros pra banca
+% (orientador e mais dois). Este comando, portanto, exige dois membros
+% (o orientador é impresso automaticamente) e suporta mais dois opcionais,
+% totalizando 5 membros. O coorientador não é impresso automaticamente pois
+% o manual de elaboração de TCC quer a sigla da instituição após o nome
+% abaixo da linha da assinatura e o coorientador não é obrigado a ser da UFFS.
+% O primeiro parâmetro, opcional, é a data da defesa.
+% O valor padrão para a data de defesa é a data configurada no documento com
+% a macro \data.
+\ProvideDocumentCommand
+\imprimirfolhadeaprovacao{ O{\imprimirdata} m m o o }{
+\begin{folhadeaprovacao}
+    \OnehalfSpacing
+    \begin{center}
+        \ABNTEXchapterfont%
+        \MakeTextUppercase{\imprimirautor}
+
+        \vspace{\baselineskip}
+
+        \MakeTextUppercase{\imprimirtitulo}
+        \abntex@ifnotempty{\imprimirsubtitulo}{
+            \\\textmd{\MakeTextUppercase{\imprimirsubtitulo}}
+        }
+    \end{center}
+
+    \vspace{\baselineskip}
+
+    \noindent\imprimirpreambulo%
+
+    \vspace{\baselineskip}
+
+    \noindent\imprimirorientadorRotulo\ \imprimirorientador
+    \abntex@ifnotempty{\imprimircoorientador}{
+        \\\imprimircoorientadorRotulo\ \imprimircoorientador
+    }
+
+    \vspace{2\baselineskip}
+
+    \noindent\declaracaoaprovacao\ #1.
+
+    \vspace{2\baselineskip}
+
+    \noindent\MakeTextUppercase{\bancaname}
+
+    \assinatura{\imprimirorientador\ -- UFFS}
+    \IfValueT{#2}{
+        \assinatura{#2}
+    }
+    \IfValueT{#3}{
+        \assinatura{#3}
+    }
+    \IfValueT{#4}{
+        \assinatura{#4}
+    }
+    \IfValueT{#5}{
+        \assinatura{#5}
+    }
+\end{folhadeaprovacao}
+}
+
+% ==============================================================================
 % Ambiente `algoritmo` e definição da lista de algoritmos
 % ==============================================================================
 \newfloat{algoritmo}{\algoritmoext}{\algoritmoname}
@@ -317,6 +388,9 @@
 \AtBeginDocument{
     \@ifpackageloaded{cleveref}{
         \crefname{algoritmo}{\algoritmoname}{\algoritmoname{}s}
+    }{}
+    \@ifpackageloaded{datetime2}{
+        \renewcommand*{\imprimirdata}{\DTMdate{\thedate}}
     }{}
 }
 

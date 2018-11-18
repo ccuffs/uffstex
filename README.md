@@ -4,11 +4,11 @@ Classe de trabalhos acadêmicos da Universidade Federal da Fronteira Sul baseada
 
 # Como utilizar?
 
-Simplesmente coloque os arquivos `uffstex.cls` e `logo.png` na pasta do seu projeto LaTeX.
+Simplesmente coloque os arquivos `uffstex.cls` e `logo.png` na pasta do seu projeto LaTeX (local ou na web, como no Overleaf).
 
 ## Dependências
 
-- Sua distribuição preferida de LaTeX (contendo `graphicx`, `indentfirst`, `textcase` e `xpatch`)
+- Sua distribuição preferida de LaTeX (contendo `graphicx`, `indentfirst`, `textcase`, `xparse` e `xpatch`)
 - [abnTeX2](https://ctan.org/pkg/abntex2)
 - Estilo ABNT para bibLaTeX ([biblatex-abnt](https://ctan.org/pkg/biblatex-abnt))
 

@@ -23,6 +23,9 @@
   % (a NBR 6023 não especifica desempate de ordenação...)
 ]{biblatex}
 
+% adicionado suporte ao pacote datetime2 para a macro \imprimirdata,
+% possibilitando a customização da formatação das datas
+\usepackage[useregional=num]{datetime2}
 \usepackage{xcolor}
 \usepackage{booktabs}
 \usepackage{csquotes}
@@ -58,9 +61,10 @@
 \subtitulo{Classe de trabalhos acadêmicos da UFFS}
 \curso{Ciência da Computação}
 \local{Chapecó}
+% datetime2 não funciona com \today porque ambos formatam a data
 \data{\hoje}
-\orientador{Fulano}
-\coorientador{Beltrano}
+\orientador{Prof.\ Dr.\ Fulano}
+\coorientador{Prof.\ Dr.\ Beltrano}
 
 \begin{document}
 % Ainda precisamos selecionar o idioma aqui
@@ -70,11 +74,16 @@
 
 % Início da parte pré-textual
 % (opcional, abnTeX2 faz automaticamente).
-\pretextual
+\pretextual%
 
-\imprimircapa
+\imprimircapa%
 
-\imprimirfolhaderosto
+\imprimirfolhaderosto%
+
+\imprimirfolhadeaprovacao{\imprimircoorientador\ -- ABCD}
+                         {Prof.\ Dr.\ Ciclano -- UFFS}
+% \imprimirfolhadeaprovacao[<data de defesa, opcional>]
+%    {<2o membro>}{<3o membro>}[<4o membro, opcional>][<5o membro, opcional>]
 
 \pdfbookmark{\listfigurename}{lof}
 \listoffigures*
@@ -96,7 +105,7 @@
 \cleardoublepage%
 
 % Início da parte textual
-\textual
+\textual%
 
 \chapter{Seção primária}
 
@@ -270,7 +279,7 @@ Por ora, o único pacote que funcionou com o ambiente \texttt{ibgetab} foi o
   \label{alg:exemplo}
 }{
 \begin{algorithm}[H]
-  \SetAlgoLined
+  \SetAlgoLined%
   \KwData{this text}
   \KwResult{how to write algorithm with \LaTeX2e}
 
@@ -292,7 +301,7 @@ Por ora, o único pacote que funcionou com o ambiente \texttt{ibgetab} foi o
 }
 \end{algoritmo}
 
-\postextual
+\postextual%
 
 % Para imprimir as referências,
 % se utilizar o pacote biblatex (recomendado),
