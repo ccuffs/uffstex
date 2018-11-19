@@ -8,7 +8,7 @@ Simplesmente coloque os arquivos `uffstex.cls` e `logo.png` na pasta do seu proj
 
 ## Dependências
 
-- Sua distribuição preferida de LaTeX (contendo `graphicx`, `indentfirst`, `textcase`, `xparse` e `xpatch`)
+- Sua distribuição preferida de LaTeX (contendo `graphicx`, `indentfirst`, `lastpage`, `textcase`, `xparse` e `xpatch`)
 - [abnTeX2](https://ctan.org/pkg/abntex2)
 - Estilo ABNT para bibLaTeX ([biblatex-abnt](https://ctan.org/pkg/biblatex-abnt))
 

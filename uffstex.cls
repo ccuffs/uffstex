@@ -29,6 +29,7 @@
 \RequirePackage{xparse}
 \RequirePackage{xpatch}
 \RequirePackage{graphicx}
+\RequirePackage{lastpage}
 \RequirePackage{textcase}
 % pacote indentfirst certifica que sempre haverá
 % identação de parágrafo na 1a linha de um novo parágrafo
@@ -310,6 +311,67 @@
 
     \textbf{\MakeTextUppercase{\imprimirlocal}}\\
     \textbf{\the\year}
+}
+
+% ==============================================================================
+% Ficha catalográfica
+% ==============================================================================
+\ProvideDocumentEnvironment{cip}{}
+{\thispagestyle{empty}\begin{SingleSpacing}}
+{\end{SingleSpacing}}
+
+\ProvideDocumentCommand
+\imprimircip{ o }{
+    \imprimircipframe
+    \IfValueT{#1}{
+        \vspace{2ex}
+        \nominata{#1}
+    }
+}
+
+\ProvideDocumentCommand
+\imprimircipframe{}{
+\vspace*{\fill}
+\begin{cip}
+    \noindent
+    \framebox[14cm]{
+    \begin{minipage}[c]{12cm}
+        \setlength{\parindent}{2em}
+        \setlength{\parskip}{1.4ex}
+        \vspace*{2ex}
+        \noindent\imprimirautor
+
+        \imprimirtitulo\ / \imprimirautor. -- \the\year.\\
+        \indent\pageref*{LastPage}~f.: il.
+
+        \imprimirorientadorRotulo\ \imprimirorientador\\
+        \abntex@ifnotempty{\imprimircoorientador}{
+            \indent\imprimircoorientadorRotulo\ \imprimircoorientador\\
+        }
+        \indent\imprimirtipotrabalho\ -- \imprimirinstituicao,
+        \imprimircursoRotulo\ \imprimircurso, \imprimirlocal, \the\year.
+
+        % \IfValueT{#1}{1.~#1.}
+        % \IfValueT{#2}{2.~#2.}
+        % \IfValueT{#3}{3.~#3.}
+        % \IfValueT{#4}{4.~#4.}
+        % \IfValueT{#5}{5.~#5.}
+        I.~\imprimirorientador.
+        II.~\imprimirinstituicao.
+        III.~T\'itulo
+        \vspace{4ex}
+    \end{minipage}
+    }
+\end{cip}
+}
+
+\ProvideDocumentCommand \nominata{ m }{
+    \SingleSpacing
+    \hrule
+    \vspace{6pt}
+    \noindent\copyright\ \the\year\\
+    \noindent Todos os direitos autorais reservados a \imprimirautor. A reprodu\c{c}\~ao de partes ou do todo deste trabalho s\'o poder\'a ser feita mediante a cita\c{c}\~ao da fonte.\\
+    \noindent E-mail: {#1}
 }
 
 % ==============================================================================
