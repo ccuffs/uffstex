@@ -65,6 +65,12 @@
 \data{\hoje}
 \orientador{Prof.\ Dr.\ Fulano}
 \coorientador{Prof.\ Dr.\ Beltrano}
+\tipotrabalho{Trabalho de conclusão de curso (graduação)}
+\palavrachave{Palavra-chave 1}
+\palavrachave{Palavra-chave 2}
+\palavrachave{Palavra-chave 3}
+\palavrachave{Palavra-chave 4}
+\palavrachave{Palavra-chave 5}
 
 \begin{document}
 % Ainda precisamos selecionar o idioma aqui
@@ -78,7 +84,13 @@
 
 \imprimircapa%
 
-\imprimirfolhaderosto%
+% comando com '*' caso imprimir com twoside (opção padrão do uffstex)
+% para a CIP ser impressa no verso.
+\imprimirfolhaderosto*%
+
+% ficha catalográfica (Cataloging in Publication (CIP))
+% com copyright em "nota de rodapé"
+\imprimircip[endereco@dominio.com.br]
 
 \imprimirfolhadeaprovacao{\imprimircoorientador\ -- ABCD}
                          {Prof.\ Dr.\ Ciclano -- UFFS}

@@ -197,6 +197,18 @@
 \providecommand*{\imprimirsubtitulo}{}
 \newcommand*{\subtitulo}[1]{\renewcommand*{\imprimirsubtitulo}{#1}}
 
+% palavras-chave
+\newcounter{pccounter}
+\NewDocumentCommand \palavrachave { m }{
+    \ifthenelse{\value{pccounter} < 5}{
+        \addtocounter{pccounter}{1}
+        \expandafter\newcommand\csname palavrach\alph{pccounter}\endcsname{#1}
+    }{
+        \ClassWarning{uffstex}
+        {Voc\^e excedeu o limite de 5 palavras-chave. Apenas 5 ser\~ao exibidas}
+    }
+}
+
 % ==============================================================================
 % Fontes padrões dos títulos até seção quinária (texto e sumário)
 % ==============================================================================
@@ -317,8 +329,8 @@
 % Ficha catalográfica
 % ==============================================================================
 \ProvideDocumentEnvironment{cip}{}
-{\thispagestyle{empty}\begin{SingleSpacing}}
-{\end{SingleSpacing}}
+{\thispagestyle{empty}\begin{SingleSpace}}
+{\end{SingleSpace}}
 
 \ProvideDocumentCommand
 \imprimircip{ o }{
@@ -351,11 +363,11 @@
         \indent\imprimirtipotrabalho\ -- \imprimirinstituicao,
         \imprimircursoRotulo\ \imprimircurso, \imprimirlocal, \the\year.
 
-        % \IfValueT{#1}{1.~#1.}
-        % \IfValueT{#2}{2.~#2.}
-        % \IfValueT{#3}{3.~#3.}
-        % \IfValueT{#4}{4.~#4.}
-        % \IfValueT{#5}{5.~#5.}
+        \ifthenelse{\isundefined{\palavracha}}{}{1.~\palavracha.}
+        \ifthenelse{\isundefined{\palavrachb}}{}{2.~\palavrachb.}
+        \ifthenelse{\isundefined{\palavrachc}}{}{3.~\palavrachc.}
+        \ifthenelse{\isundefined{\palavrachd}}{}{4.~\palavrachd.}
+        \ifthenelse{\isundefined{\palavrache}}{}{5.~\palavrache.}
         I.~\imprimirorientador.
         II.~\imprimirinstituicao.
         III.~T\'itulo
@@ -366,12 +378,15 @@
 }
 
 \ProvideDocumentCommand \nominata{ m }{
-    \SingleSpacing
+\begin{SingleSpace}
     \hrule
     \vspace{6pt}
     \noindent\copyright\ \the\year\\
-    \noindent Todos os direitos autorais reservados a \imprimirautor. A reprodu\c{c}\~ao de partes ou do todo deste trabalho s\'o poder\'a ser feita mediante a cita\c{c}\~ao da fonte.\\
+    \noindent Todos os direitos autorais reservados a \imprimirautor.
+    A reprodu\c{c}\~ao de partes ou do todo deste trabalho s\'o poder\'a ser
+    feita mediante a cita\c{c}\~ao da fonte.\\
     \noindent E-mail: {#1}
+\end{SingleSpace}
 }
 
 % ==============================================================================
@@ -422,12 +437,8 @@
     \noindent\MakeTextUppercase{\bancaname}
 
     \assinatura{\imprimirorientador\ -- UFFS}
-    \IfValueT{#2}{
-        \assinatura{#2}
-    }
-    \IfValueT{#3}{
-        \assinatura{#3}
-    }
+    \assinatura{#2}
+    \assinatura{#3}
     \IfValueT{#4}{
         \assinatura{#4}
     }
