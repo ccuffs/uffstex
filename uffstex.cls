@@ -21,7 +21,7 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{uffstex}[2018/11/18 v0.7.0]
+\ProvidesClass{uffstex}[2018/11/20 v0.8.0]
 
 % ==============================================================================
 % Carregando pacotes necessários
@@ -130,6 +130,8 @@
 \addto\captionsbrazil{
   \providecommand*{\campusname}{campus de}
   \providecommand*{\cursoname}{curso de}
+  \renewcommand*{\orientadorname}{Orientador}
+  \renewcommand*{\coorientadorname}{Coorientador}
   \providecommand*{\bacharelname}{Bacharel}
   \providecommand*{\licenciaturaname}{Licenciatura}
   \providecommand*{\bancaname}{banca avaliadora}
@@ -137,6 +139,8 @@
     foi defendido e aprovado pela \bancaname\ em:}
   \providecommand*{\algoritmoname}{Algoritmo}
   \providecommand*{\listalgoritmoname}{Lista de \algoritmoname{}s}
+  \providecommand*{\cipfolhas}{f}
+  \providecommand*{\cipiii}{T\'itulo}
 }
 \addto\extrasbrazil{
   \instituicao{Universidade Federal da Fronteira Sul}
@@ -152,8 +156,8 @@
 \addto\captionsenglish{
   \renewcommand*{\campusname}{campus of}
   \renewcommand*{\cursoname}{course of}
-  \renewcommand*{\orientadorname}{Advisor:}
-  \renewcommand*{\coorientadorname}{Co-advisor:}
+  \renewcommand*{\orientadorname}{Advisor}
+  \renewcommand*{\coorientadorname}{Co-advisor}
   \renewcommand*{\bacharelname}{Bachelor}
   % "Licenciate" foi o mais próximo que encontrei,
   % mas pode não significar a mesma coisa que no Brasil:
@@ -167,6 +171,8 @@
     was defended and approved by the \bancaname\ on:}
   \renewcommand*{\algoritmoname}{Algorithm}
   \renewcommand*{\listalgoritmoname}{List of \algoritmoname{}s}
+  \renewcommand*{\cipfolhas}{p}
+  \renewcommand*{\cipiii}{Title}
 }
 \addto\extrasenglish{
   \instituicao{Federal University of Fronteira Sul}
@@ -382,14 +388,14 @@
         \setlength{\parindent}{2em}
         \setlength{\parskip}{1.4ex}
         \vspace*{2ex}
-        \noindent\imprimirautor
+        \noindent\autorultnome, \autorinicio
 
         \imprimirtitulo\ / \imprimirautor. -- \the\year.\\
-        \indent\pageref*{LastPage}~f.: il.
+        \indent\pageref*{LastPage}~\cipfolhas.: il.
 
-        \imprimirorientadorRotulo\ \imprimirorientador\\
+        \imprimirorientadorRotulo\ \imprimirorientador.\\
         \abntex@ifnotempty{\imprimircoorientador}{
-            \indent\imprimircoorientadorRotulo\ \imprimircoorientador\\
+            \indent\imprimircoorientadorRotulo\ \imprimircoorientador.\\
         }
         \indent\imprimirtipotrabalho\ -- \imprimirinstituicao,
         \imprimircursoRotulo\ \imprimircurso, \imprimirlocal, \the\year.
@@ -399,9 +405,10 @@
         \ifthenelse{\isundefined{\palavrachc}}{}{3.~\palavrachc.}
         \ifthenelse{\isundefined{\palavrachd}}{}{4.~\palavrachd.}
         \ifthenelse{\isundefined{\palavrache}}{}{5.~\palavrache.}
-        I.~\imprimirorientador.
+        I.~\orientadorultnome, \orientadorinicio,
+            \MakeTextLowercase{\orientadorname}.
         II.~\imprimirinstituicao.
-        III.~T\'itulo
+        III.~\cipiii.
         \vspace{4ex}
     \end{minipage}
     }
