@@ -198,8 +198,10 @@
 \newcommand*{\subtitulo}[1]{\renewcommand*{\imprimirsubtitulo}{#1}}
 
 \ExplSyntaxOn
-\cs_new_protected:Npn \dados_divnome:NNn #1#2#3 {
-    \regex_extract_once:nnN{(.+)\ (.+)}{#3}\l_tmpa_rslt
+\regex_const:Nn \g__dados_divnome_regex {(.+)\ (.+)}
+\cs_new_protected:Npn \dados_divnome:NNn #1#2#3
+{
+    \regex_extract_once:NnN \g__dados_divnome_regex {#3} \l_tmpa_rslt
     \seq_pop_right:NN \l_tmpa_rslt #2
     \seq_pop_right:NN \l_tmpa_rslt #1
 }
