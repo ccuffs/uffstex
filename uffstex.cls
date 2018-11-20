@@ -206,15 +206,31 @@
     \seq_pop_right:NN \l_tmpa_rslt #1
 }
 
-\RenewDocumentCommand \autor { m }{
+\RenewDocumentCommand \autor { m }
+{
     \author{#1}
     \dados_divnome:NNn\autorinicio\autorultnome{#1}
+}
+
+\RenewDocumentCommand \orientador { O{\orientadorname} m }
+{
+    \RenewDocumentCommand \imprimirorientadorRotulo{}{#1:}
+    \RenewDocumentCommand \imprimirorientador{}{#2}
+    \dados_divnome:NNn\orientadorinicio\orientadorultnome{#2}
+}
+
+\RenewDocumentCommand \coorientador { O{\coorientadorname} m }
+{
+    \RenewDocumentCommand \imprimircoorientadorRotulo{}{#1:}
+    \RenewDocumentCommand \imprimircoorientador{}{#2}
+    \dados_divnome:NNn\coorientadorinicio\coorientadorultnome{#2}
 }
 \ExplSyntaxOff
 
 % palavras-chave (funcionalidade baseada na classe mdtuffs)
 \newcounter{pccounter}
-\NewDocumentCommand \palavrachave { m }{
+\NewDocumentCommand \palavrachave { m }
+{
     \ifthenelse{\value{pccounter} < 5}{
         \addtocounter{pccounter}{1}
         \expandafter\newcommand\csname palavrach\alph{pccounter}\endcsname{#1}
