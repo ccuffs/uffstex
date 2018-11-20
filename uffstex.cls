@@ -204,12 +204,19 @@
 \newcommand*{\subtitulo}[1]{\renewcommand*{\imprimirsubtitulo}{#1}}
 
 \ExplSyntaxOn
-\regex_const:Nn \g__dados_divnome_regex {(.+)\ (.+)}
+\regex_const:Nn \g__dados_divnome_regex {(?:(.+)\ )?(.+)}
 \cs_new_protected:Npn \dados_divnome:NNn #1#2#3
 {
     \regex_extract_once:NnN \g__dados_divnome_regex {#3} \l_tmpa_rslt
     \seq_pop_right:NN \l_tmpa_rslt #2
     \seq_pop_right:NN \l_tmpa_rslt #1
+    % se não há sobrenome na entrada, #1 está vazia e o nome foi parar em #2
+    \ifthenelse{\equal{#1}{} \and \not\equal{#2}{}}
+    {
+        % então seta #1 = #2 e depois limpa #2
+        \tl_gset_eq:NN #1 #2
+        \tl_gclear:N #2
+    }{}
 }
 
 \RenewDocumentCommand \autor { m }
@@ -388,7 +395,8 @@
         \setlength{\parindent}{2em}
         \setlength{\parskip}{1.4ex}
         \vspace*{2ex}
-        \noindent\autorultnome, \autorinicio
+        \noindent
+        \abntex@ifnotempty{\autorultnome}{\autorultnome, }\autorinicio
 
         \imprimirtitulo\ / \imprimirautor. -- \the\year.\\
         \indent\pageref*{LastPage}~\cipfolhas.: il.
@@ -405,7 +413,8 @@
         \ifthenelse{\isundefined{\palavrachc}}{}{3.~\palavrachc.}
         \ifthenelse{\isundefined{\palavrachd}}{}{4.~\palavrachd.}
         \ifthenelse{\isundefined{\palavrache}}{}{5.~\palavrache.}
-        I.~\orientadorultnome, \orientadorinicio,
+        I.~\abntex@ifnotempty{\orientadorultnome}
+            {\orientadorultnome, }{}\orientadorinicio,
             \MakeTextLowercase{\orientadorname}.
         II.~\imprimirinstituicao.
         III.~\cipiii.
