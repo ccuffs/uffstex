@@ -198,7 +198,7 @@
 \newcommand*{\subtitulo}[1]{\renewcommand*{\imprimirsubtitulo}{#1}}
 
 \ExplSyntaxOn
-\cs_new_protected:Npn \uffstex_divnome:NNn #1#2#3 {
+\cs_new_protected:Npn \dados_divnome:NNn #1#2#3 {
     \regex_extract_once:nnN{(.+)\ (.+)}{#3}\l_tmpa_rslt
     \seq_pop_right:NN \l_tmpa_rslt #2
     \seq_pop_right:NN \l_tmpa_rslt #1
@@ -206,7 +206,7 @@
 
 \RenewDocumentCommand \autor { m }{
     \author{#1}
-    \uffstex_divnome:NNn\autorinicio\autorultnome{#1}
+    \dados_divnome:NNn\autorinicio\autorultnome{#1}
 }
 \ExplSyntaxOff
 
