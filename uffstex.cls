@@ -240,6 +240,18 @@
 }
 \ExplSyntaxOff
 
+\providecommand*{\imprimircidade}{}
+\ProvideDocumentCommand \cidade { m }
+{
+    \renewcommand*{\imprimircidade}{#1}
+}
+
+\providecommand*{\imprimiruf}{}
+\ProvideDocumentCommand \uf { m }
+{
+    \renewcommand*{\imprimiruf}{#1}
+}
+
 % palavras-chave (funcionalidade baseada na classe mdtuffs)
 \newcounter{pccounter}
 \NewDocumentCommand \palavrachave { m }
@@ -308,7 +320,7 @@
         \vspace{1cm}
 
         \MakeTextUppercase{\imprimirinstituicao}\\
-        \MakeTextUppercase{\imprimircampusRotulo\ \imprimirlocal}\\
+        \MakeTextUppercase{\imprimircampusRotulo\ \imprimircidade}\\
         \MakeTextUppercase{\imprimircursoRotulo\ \imprimircurso}
 
         \vspace{3cm}
@@ -324,7 +336,7 @@
 
         \vspace{\fill}
 
-        \MakeTextUppercase{\imprimirlocal}\\
+        \MakeTextUppercase{\imprimircidade}\\
         \the\year
     \end{capa}
 }
@@ -365,7 +377,7 @@
 
     \vfill
 
-    \textbf{\MakeTextUppercase{\imprimirlocal}}\\
+    \textbf{\MakeTextUppercase{\imprimircidade}}\\
     \textbf{\the\year}
 }
 
@@ -406,7 +418,9 @@
             \indent\imprimircoorientadorRotulo\ \imprimircoorientador.\\
         }
         \indent\imprimirtipotrabalho\ -- \imprimirinstituicao,
-        \imprimircursoRotulo\ \imprimircurso, \imprimirlocal, \the\year.
+        \imprimircursoRotulo\ \imprimircurso,
+        \imprimircidade, \abntex@ifnotempty{\imprimiruf}{\imprimiruf,}{}
+        \the\year.
 
         \ifthenelse{\isundefined{\palavracha}}{}{1.~\palavracha.}
         \ifthenelse{\isundefined{\palavrachb}}{}{2.~\palavrachb.}
