@@ -141,6 +141,9 @@
   \providecommand*{\listalgoritmoname}{Lista de \algoritmoname{}s}
   \providecommand*{\cipfolhas}{f}
   \providecommand*{\cipiii}{T\'itulo}
+  \providecommand*{\notacopia}{Todos os direitos autorais reservados
+  a \imprimirautor. A reprodu\c{c}\~ao de partes ou do todo deste trabalho s\'o
+  poder\'a ser feita mediante a cita\c{c}\~ao da fonte.}
 }
 \addto\extrasbrazil{
   \instituicao{Universidade Federal da Fronteira Sul}
@@ -171,8 +174,11 @@
     was defended and approved by the \bancaname\ on:}
   \renewcommand*{\algoritmoname}{Algorithm}
   \renewcommand*{\listalgoritmoname}{List of \algoritmoname{}s}
-  \renewcommand*{\cipfolhas}{p}
+  \renewcommand*{\cipfolhas}{pp}
   \renewcommand*{\cipiii}{Title}
+  \renewcommand*{\notacopia}{All rights reserved to \imprimirautor.
+  This work or any portion thereof may not be reproduced
+  without citing the source.}
 }
 \addto\extrasenglish{
   \instituicao{Federal University of Fronteira Sul}
@@ -392,7 +398,7 @@
 \imprimircip{ o }{
     \imprimircipframe
     \IfValueT{#1}{
-        \vspace{2ex}
+        \vspace{4ex}
         \nominata{#1}
     }
 }
@@ -443,9 +449,7 @@
     \hrule
     \vspace{6pt}
     \noindent\copyright\ \the\year\\
-    \noindent Todos os direitos autorais reservados a \imprimirautor.
-    A reprodu\c{c}\~ao de partes ou do todo deste trabalho s\'o poder\'a ser
-    feita mediante a cita\c{c}\~ao da fonte.\\
+    \noindent\notacopia\\
     \noindent E-mail: {#1}
 \end{SingleSpace}
 }
