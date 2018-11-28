@@ -21,7 +21,7 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{uffstex}[2018/11/20 v0.8.0]
+\ProvidesClass{uffstex}[2018/11/28 v0.8.1]
 
 % ==============================================================================
 % Carregando pacotes necessários
@@ -144,6 +144,9 @@
   \providecommand*{\notacopia}{Todos os direitos autorais reservados
   a \imprimirautor. A reprodu\c{c}\~ao de partes ou do todo deste trabalho s\'o
   poder\'a ser feita mediante a cita\c{c}\~ao da fonte.}
+  % abntex2 já utiliza 'anexoname' e 'anexosname'...
+  \providecommand*{\annexname}{Anexo}
+  \providecommand*{\annexesname}{Anexos}
 }
 \addto\extrasbrazil{
   \instituicao{Universidade Federal da Fronteira Sul}
@@ -179,6 +182,9 @@
   \renewcommand*{\notacopia}{All rights reserved to \imprimirautor.
   This work or any portion thereof may not be reproduced
   without citing the source.}
+  % abntex2 já utiliza 'anexoname' e 'anexosname'...
+  \renewcommand*{\annexname}{Annex}
+  \renewcommand*{\annexesname}{Annexes}
 }
 \addto\extrasenglish{
   \instituicao{Federal University of Fronteira Sul}
@@ -526,6 +532,7 @@
 \AtBeginDocument{
     \@ifpackageloaded{cleveref}{
         \crefname{algoritmo}{\algoritmoname}{\algoritmoname{}s}
+        \crefname{anexo}{\annexname}{\annexesname}
     }{}
     \@ifpackageloaded{datetime2}{
         \renewcommand*{\imprimirdata}{\DTMdate{\thedate}}
