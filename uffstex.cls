@@ -264,18 +264,62 @@
     \renewcommand*{\imprimiruf}{#1}
 }
 
-% palavras-chave (funcionalidade baseada na classe mdtuffs)
-\newcounter{pccounter}
+% =======================================
+% Palavras-chave (funcionalidade baseada na classe mdtuffs)
+% =======================================
+\ExplSyntaxOn
+\tl_const:Nn \c_kw_csprefix_tl {palavrach}
+\int_const:Nn \c_kw_max_int {5}
+\int_zero_new:N \g_kw_count_int
+
+\cs_new:Npn \kw_add:n #1
+{
+    \cs_new:cpn {\c_kw_csprefix_tl\int_to_alph:n{\g_kw_count_int}} {#1}
+}
+
 \NewDocumentCommand \palavrachave { m }
 {
-    \ifthenelse{\value{pccounter} < 5}{
-        \addtocounter{pccounter}{1}
-        \expandafter\newcommand\csname palavrach\alph{pccounter}\endcsname{#1}
-    }{
-        \ClassWarning{uffstex}
-        {Voc\^e excedeu o limite de 5 palavras-chave. Apenas 5 ser\~ao exibidas}
+    \int_compare:nTF {\g_kw_count_int < \c_kw_max_int}
+    {
+        \int_incr:N \g_kw_count_int
+        \kw_add:n {#1}
+    }
+    {
+        \ClassWarning{uffstex}{Voc\^e~excedeu~o~limite~de~
+        \int_to_arabic:n {\c_kw_max_int}~palavras-chave.~Apenas~
+        \int_to_arabic:n {\c_kw_max_int}~ser\~ao~exibidas}
     }
 }
+
+\NewDocumentCommand \imprimirpc { m }
+{
+    \int_compare:nTF {1 <= #1 <= \c_kw_max_int}
+    {
+        \use:c {\c_kw_csprefix_tl\int_to_alph:n{#1}}
+    }
+    {
+        \ClassError{uffstex}{Palavra-chave~#1~n\~ao~existe}
+            {Verifique~o~n\'umero~que~voc\^e~passou~como~par\^ametro~
+            para~o~comando~\imprimirpc~e~quantas~palavras-chave~voc\^e~definiu.}
+    }
+}
+
+\NewDocumentCommand \imprimirpcs { s O{.} }
+{
+    \int_zero_new:N \l_kw_count_int
+    \int_while_do:nn {\l_kw_count_int < \g_kw_count_int}
+    {
+        \int_incr:N \l_kw_count_int
+        % se usar comando com *, enumera as palavras-chave
+        \IfBooleanT{#1}{\int_to_arabic:n {\l_kw_count_int}.\nobreakspace}
+        \imprimirpc{\l_kw_count_int}#2
+
+        % se o contador ainda é menor que o valor máximo, coloca um espaço
+        % (ou seja, coloca um espaço entre as palavras-chave)
+        \int_compare:nTF {\l_kw_count_int < \c_kw_max_int}{~}{}
+    }
+}
+\ExplSyntaxOff
 
 % ==============================================================================
 % Fontes padrões dos títulos até seção quinária (texto e sumário)
@@ -434,11 +478,7 @@
         \imprimircidade, \abntex@ifnotempty{\imprimiruf}{\imprimiruf,}{}
         \the\year.
 
-        \ifthenelse{\isundefined{\palavracha}}{}{1.~\palavracha.}
-        \ifthenelse{\isundefined{\palavrachb}}{}{2.~\palavrachb.}
-        \ifthenelse{\isundefined{\palavrachc}}{}{3.~\palavrachc.}
-        \ifthenelse{\isundefined{\palavrachd}}{}{4.~\palavrachd.}
-        \ifthenelse{\isundefined{\palavrache}}{}{5.~\palavrache.}
+        \imprimirpcs*
         I.~\abntex@ifnotempty{\orientadorultnome}
             {\orientadorultnome, }{}\orientadorinicio,
             \MakeTextLowercase{\orientadorname}.
