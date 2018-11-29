@@ -21,7 +21,7 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{uffstex}[2018/11/28 v0.8.1]
+\ProvidesClass{uffstex}[2018/11/28 v0.9.0]
 
 % ==============================================================================
 % Carregando pacotes necessários
