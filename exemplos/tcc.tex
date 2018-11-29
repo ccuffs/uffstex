@@ -349,4 +349,24 @@ Por ora, o único pacote que funcionou com o ambiente \texttt{ibgetab} foi o
 % https://ctan.org/pkg/abntex2
 % (item "Ci­ta­tion sup­port pack­age doc­u­men­ta­tion")
 
+\apendices%
+
+\chapter{Um apêndice}
+
+Conteúdo do apêndice.
+
+\anexos%
+
+\chapter{Um anexo}\label[anexo]{umanexo}
+
+Conteúdo do anexo.
+
+Aparentemente o \LaTeX\ não diferencia apêndice de anexo, então é preciso
+explicitar o tipo do rótulo do anexo como \texttt{anexo} caso for referenciá-lo:
+\verb|\label[anexo]{<rótulo>}|.
+
+Isso só funciona com o \texttt{cleveref}.
+Compare:
+\autoref{umanexo} (com \verb|\autoref|) e \cref{umanexo} (com \verb|\cref|).
+
 \end{document}
