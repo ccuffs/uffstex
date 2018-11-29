@@ -98,6 +98,29 @@
 % \imprimirfolhadeaprovacao[<data de defesa, opcional>]
 %    {<2o membro>}{<3o membro>}[<4o membro, opcional>][<5o membro, opcional>]
 
+\begin{resumo}
+  Escreva aqui seu resumo de 150 a 500 palavras.
+  Infelizmente não encontrei, se é que existe, uma maneira de automatizar
+  a criação de resumos para outras línguas que não a do documento.
+  Então é preciso fazê-lo manualmente, especificando o título do resumo
+  (\enquote{Resumo} na língua a ser escrita) e também escrever o texto dentro
+  do ambiente \texttt{otherlanguage*}.
+
+  \vspace{\baselineskip}
+
+  Palavras-chave: \imprimirpcs*
+\end{resumo}
+
+\begin{resumo}[Abstract]
+  \begin{otherlanguage*}{english}
+    Your abstract in English.
+
+    \vspace{\baselineskip}
+
+    Keywords: Keyword 1. Keyword 2. Keyword 3. Keyword 4. Keyword 5.
+  \end{otherlanguage*}
+\end{resumo}
+
 \pdfbookmark{\listfigurename}{lof}
 \listoffigures*
 \cleardoublepage%
