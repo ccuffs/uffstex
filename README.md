@@ -36,12 +36,7 @@ Deste modo, basta um `git pull` para atualizar sua versão do uffstex e não há
 ## Mais informações
 
 Este é um projeto em construção. Por enquanto não há documentação, mas o código do exemplo ([`exemplos/tcc.tex`](exemplos/tcc.tex)) está bem completo e comentado. Comece por lá!
-
-### Links relevantes
-
-- [abnTeX2](https://github.com/abntex/abntex2/)
-- [Estilo ABNT do biblatex](https://github.com/abntex/biblatex-abnt)
-- [Normalização de trabalhos da UFFS](https://www.uffs.edu.br/campi/chapeco/biblioteca/normalizacao-de-trabalhos)
+O que não estiver documentado no exemplo ou no código da classe pode ser consultado na documentação do [abnTeX2](https://ctan.org/pkg/abntex2). As regras da UFFS para elaboração de trabalhos acadêmicos pode ser consultada [aqui](https://www.uffs.edu.br/campi/chapeco/biblioteca/normalizacao-de-trabalhos).
 
 # Como contribuir
 
