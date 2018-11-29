@@ -21,7 +21,7 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{uffstex}[2018/11/28 v0.9.0]
+\ProvidesClass{uffstex}[2018/11/29 v0.10.0]
 
 % ==============================================================================
 % Carregando pacotes necessários
@@ -466,7 +466,8 @@
         \noindent
         \abntex@ifnotempty{\autorultnome}{\autorultnome, }\autorinicio
 
-        \imprimirtitulo\ / \imprimirautor. -- \the\year.\\
+        \imprimirtitulo\abntex@ifnotempty{\imprimirsubtitulo}
+            {: \imprimirsubtitulo} / \imprimirautor. -- \the\year.\\
         \indent\pageref*{LastPage}~\cipfolhas.: il.
 
         \imprimirorientadorRotulo\ \imprimirorientador.\\
@@ -482,8 +483,19 @@
         I.~\abntex@ifnotempty{\orientadorultnome}
             {\orientadorultnome, }{}\orientadorinicio,
             \MakeTextLowercase{\orientadorname}.
-        II.~\imprimirinstituicao.
-        III.~\cipiii.
+        \ifthenelse{\equal{\imprimircoorientador}{}}
+        {
+            % se não há coorientador, pula pra instituição
+            II.~\imprimirinstituicao.
+            III.~\cipiii.
+        }
+        {
+            II.~\abntex@ifnotempty{\coorientadorultnome}
+                {\coorientadorultnome, }{}\coorientadorinicio,
+                \MakeTextLowercase{\coorientadorname}.
+            III.~\imprimirinstituicao.
+            IV.~\cipiii.
+        }
         \vspace{4ex}
     \end{minipage}
     }
