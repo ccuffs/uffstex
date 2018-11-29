@@ -9,7 +9,7 @@
 % A opção "serif" estiliza os títulos com a versão
 % serifada da fonte escolhida (abntex2 utiliza
 % estilo sem serifa por padrão).
-\documentclass[serif, brazilian]{uffstex}
+\documentclass[serif, english, brazilian]{uffstex}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[
@@ -104,7 +104,9 @@
   a criação de resumos para outras línguas que não a do documento.
   Então é preciso fazê-lo manualmente, especificando o título do resumo
   (\enquote{Resumo} na língua a ser escrita) e também escrever o texto dentro
-  do ambiente \texttt{otherlanguage*}.
+  do ambiente \texttt{otherlanguage*}. Além disso, para escrever em uma língua
+  diferente da do documento, também é preciso especificá-la para o Babel
+  (feito globalmente neste exemplo).
 
   \vspace{\baselineskip}
 
