@@ -304,7 +304,7 @@
     }
 }
 
-\NewDocumentCommand \imprimirpcs { s O{.} }
+\NewDocumentCommand \imprimirpcs { s O{\@.} }
 {
     \int_zero_new:N \l_kw_count_int
     \int_while_do:nn {\l_kw_count_int < \g_kw_count_int}
