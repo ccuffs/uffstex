@@ -189,8 +189,8 @@
 \addto\extrasenglish{
   \instituicao{Federal University of Fronteira Sul}
   \preambulo{Final undergraduate work submitted as %
-      requirement to obtain the \imprimirgrau's degree in %
-      \imprimircurso\ from \imprimirinstituicao.}
+      requirement to obtain a \imprimirgrau's degree in %
+      \imprimircurso\ from the \imprimirinstituicao.}
 }
 
 % ==============================================================================
