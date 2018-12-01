@@ -21,7 +21,7 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{uffstex}[2018/12/01 v0.10.4]
+\ProvidesClass{uffstex}[2018/12/01 v0.10.5]
 
 % ==============================================================================
 % Carregando pacotes necessários
@@ -373,7 +373,7 @@
         % altura, o LaTeX escala a largura
         \includegraphics[height=20mm]{logo.png}
 
-        \vspace{1cm}
+        \vspace{\baselineskip}
 
         \MakeTextUppercase{\imprimirinstituicao}\\
         \MakeTextUppercase{\imprimircampusRotulo\ \imprimircidade}\\
@@ -383,7 +383,7 @@
 
         \MakeTextUppercase{\imprimirautor}
 
-        \vspace{5cm}
+        \vspace{4.5cm}
 
         \MakeTextUppercase{\imprimirtitulo}
         \abntex@ifnotempty{\imprimirsubtitulo}{
@@ -406,14 +406,14 @@
 
     \MakeTextUppercase{\imprimirautor}
 
-    \vspace{6cm}
+    \vspace{7cm}
 
     \MakeTextUppercase{\imprimirtitulo}
     \abntex@ifnotempty{\imprimirsubtitulo}{
         \\\textmd{\MakeTextUppercase{\imprimirsubtitulo}}
     }
 
-    \vspace{2cm}
+    \vspace{3cm}
 
     \abntex@ifnotempty{\imprimirpreambulo}{
         \hspace*{0.49\textwidth}
