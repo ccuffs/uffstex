@@ -21,7 +21,7 @@
 %%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{uffstex}[2018/11/29 v0.10.0]
+\ProvidesClass{uffstex}[2018/12/01 v0.10.4]
 
 % ==============================================================================
 % Carregando pacotes necessários
@@ -584,8 +584,13 @@
 
 \AtBeginDocument{
     \@ifpackageloaded{cleveref}{
-        \crefname{algoritmo}{\algoritmoname}{\algoritmoname{}s}
-        \crefname{anexo}{\annexname}{\annexesname}
+        % \crefname é definido automaticamente com \MakeLowercase do \Crefname
+        \Crefname{algoritmo}{\algoritmoname}{\algoritmoname{}s}
+        \Crefname{anexo}{\annexname}{\annexesname}
+
+        \if@cref@capitalise%
+            \crefname{algoritmo}{\algoritmoname}{\algoritmoname{}s}%
+        \fi%
     }{}
     \@ifpackageloaded{datetime2}{
         \renewcommand*{\imprimirdata}{\DTMdate{\thedate}}
