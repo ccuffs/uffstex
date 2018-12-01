@@ -451,6 +451,7 @@
         \vspace{4ex}
         \nominata{#1}
     }
+    \clearpage%
 }
 
 \ProvideDocumentCommand
