@@ -30,7 +30,7 @@
 \RequirePackage{xpatch}
 \RequirePackage{graphicx}
 \RequirePackage{lastpage}
-\RequirePackage{textcase}
+\RequirePackage[overload]{textcase}
 % pacote indentfirst certifica que sempre haverá
 % identação de parágrafo na 1a linha de um novo parágrafo
 \RequirePackage{indentfirst}
