@@ -12,16 +12,16 @@
 \documentclass[serif, english, brazilian]{uffstex}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[
-  % Estilo numérico é preferível e é
-  % permitido pela ABNT e pela UFFS :)
-  style=abnt-numeric,
-  % Para o estilo autor-data:
-  % style=abnt
-  % Ordenação:
-  % sorting=nty % por nome, título e ano
-  % (a NBR 6023 não especifica desempate de ordenação...)
-]{biblatex}
+% \usepackage[
+%   % Estilo numérico é preferível e é
+%   % permitido pela ABNT e pela UFFS :)
+%   style=abnt-numeric,
+%   % Para o estilo autor-data:
+%   % style=abnt
+%   % Ordenação:
+%   % sorting=nty % por nome, título e ano
+%   % (a NBR 6023 não especifica desempate de ordenação...)
+% ]{biblatex}
 
 % adicionado suporte ao pacote datetime2 para a macro \imprimirdata,
 % possibilitando a customização da formatação das datas
@@ -53,7 +53,7 @@
 \providecolor{uffsgreen}{RGB}{0, 105, 62}
 
 % Adiciona arquivo de referências para o biblatex
-\addbibresource{refs.bib}
+% \addbibresource{refs.bib}
 
 % Comandos de dados
 \autor{CC UFFS}
@@ -177,7 +177,7 @@ sobre esta prática.
 
 % Para citar com número de página, basta
 % informá-la como parâmetro opcional.
-Segundo \textcite{halim3rd}, codar um array de sufixos é mais fácil que uma árvore de sufixos. Ou então: codar um array de sufixos é mais fácil que uma árvore de sufixos~\cite[253]{halim3rd}.
+Segundo \cite{halim3rd}, codar um array de sufixos é mais fácil que uma árvore de sufixos. Ou então: codar um array de sufixos é mais fácil que uma árvore de sufixos~\cite[253]{halim3rd}.
 
 \section{Diretas}
 
@@ -306,45 +306,23 @@ do pacote \texttt{xcolor} e do comando:}
 \providecolor{uffsgreen}{RGB}{0, 105, 62}
 \end{verbatim}
 
-\section{Algoritmos}
+\section{Algoritmos  }
 
 Por ora, o único pacote que funcionou com o ambiente \texttt{ibgetab} foi o
 \texttt{algorithm2e}.
-
-\begin{algoritmo}[h]
-\ibgetab{
-  \caption{Como escrever algoritmos}%
-  \label{alg:exemplo}
-}{
-\begin{algorithm}[H]
-  \SetAlgoLined%
-  \KwData{this text}
-  \KwResult{how to write algorithm with \LaTeX2e}
-
-  initialization\;
-  \While{not at end of this document}{
-    read current\;
-    \eIf{understand}{
-      go to next section\;
-      current section becomes this one\;
-    }{
-      go back to the beginning of current section\;
-    }
-  }
-  % não usamos caption aqui por causa do \ibgetab
-  %\caption{How to write algorithms}
-\end{algorithm}
-}{
-  \fonte{os autores do \href{https://ctan.org/pkg/algorithm2e}{algorithm2e}}
-}
-\end{algoritmo}
 
 \postextual%
 
 % Para imprimir as referências,
 % se utilizar o pacote biblatex (recomendado),
 % como neste exemplo:
-\printbibliography[heading=abnt]
+\bibliographystyle{sbc}  % estilo bibliográfico da Sociedade Brasileira de Computação (SBC)
+
+	%\renewcommand{\bibname}{REFERÊNCIAS BIBLIOGRÁFICAS} %Define o Caption da seção de bibliografia
+	%\addcontentsline{toc}{chapter}{REFERÊNCIAS BIBLIOGRÁFICAS}
+	
+	%não pode ter espaço entre os nomes dos arquivos bib
+\bibliography{exemplos/refs}
 % E se utilizar o abntex2cite, consultar a documentação:
 % https://www.abntex.net.br/#manuais-do-abntex2
 % ou
